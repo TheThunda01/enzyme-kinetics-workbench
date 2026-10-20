@@ -1,0 +1,13 @@
+state,omitted_concentration_ppm,omitted_row_ids,omitted_rows,retained_rows,retained_concentration_min_ppm,retained_concentration_max_ppm,prediction_scope,vmax,km,vmax_change_percent,km_change_percent,omitted_rmse_counts_per_min_per_min,at_computational_bound
+treated,0.02,1;2,2,10,0.06,1.1,below_retained_range,216.621159,0.07223654301,1.851301016,12.65611347,20.5267625,False
+treated,0.06,3;4,2,10,0.02,1.1,within_retained_range,212.3221471,0.06320867493,-0.1700156308,-1.423249807,5.191322413,False
+treated,0.11,5;6,2,10,0.02,1.1,within_retained_range,212.298903,0.06195937177,-0.1809445439,-3.371593851,9.331907415,False
+treated,0.22,7;8,2,10,0.02,1.1,within_retained_range,214.9449308,0.06297394443,1.063169251,-1.78932251,12.12646026,False
+treated,0.56,9;10,2,10,0.02,1.1,within_retained_range,208.4877757,0.06136112773,-1.972866815,-4.304582149,9.519752283,False
+treated,1.1,11;12,2,10,0.02,0.56,above_retained_range,209.103882,0.06121025312,-1.683184923,-4.539877828,6.450591368,False
+untreated,0.02,13;14,2,9,0.06,1.1,below_retained_range,166.5339226,0.06075969069,3.901843171,27.35695269,19.47696471,False
+untreated,0.06,15;16,2,9,0.02,1.1,within_retained_range,158.5003916,0.04282406148,-1.11034094,-10.23749612,7.554783956,False
+untreated,0.11,17;18,2,9,0.02,1.1,within_retained_range,160.3379085,0.04514429096,0.03610051939,-5.374117898,11.12817904,False
+untreated,0.22,19;20,2,9,0.02,1.1,within_retained_range,162.0713952,0.04802413718,1.117636747,0.6622597509,6.545969684,False
+untreated,0.56,21;22,2,9,0.02,1.1,within_retained_range,156.1663364,0.04447971306,-2.566576601,-6.767123941,9.434228361,False
+untreated,1.1,23,1,10,0.02,0.56,above_retained_range,156.5643093,0.04441985467,-2.318278124,-6.892591705,9.512624654,False

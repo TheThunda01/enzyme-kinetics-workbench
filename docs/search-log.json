@@ -1,0 +1,259 @@
+{
+  "search_date": "2026-10-20",
+  "date_window": {
+    "from": "2022-01-01",
+    "through": "2026-10-20",
+    "date_field": "publication",
+    "note": "Older foundational and official sources deliberately retained outside recent discovery window."
+  },
+  "inclusion_criteria": [
+    "Primary studies or official documentation relevant to practical validation and the fixed project's model/data",
+    "English accessible metadata; full text preferred, abstract-only access explicitly labeled"
+  ],
+  "exclusion_criteria": [
+    "Unrelated biological target/task or more elaborate capability outside this advancement",
+    "Preprints and reviews as evidence for newly implemented behavior",
+    "Displayed publication dates beyond cutoff without verified earlier publication"
+  ],
+  "review_kind": "Bounded rapid evidence review; one reviewer; not a complete systematic review",
+  "full_text_attempts": [
+    {
+      "id": "37165287",
+      "method": "PubMed get_full_text_articles PMC11189375",
+      "result": "Internal tool error; publisher page exposes abstract only; appraisal restricted to abstract."
+    },
+    {
+      "id": "38438947",
+      "method": "Publisher",
+      "result": "Introduction and identifiability/profile methods inspected."
+    }
+  ],
+  "supplementary_searches": [
+    {
+      "source": "Official R manual",
+      "query": "Direct URL https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html",
+      "total_results": null,
+      "returned_count": 1,
+      "limit": "Single known resource",
+      "version": "Pinned included R source 3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2"
+    },
+    {
+      "source": "SciPy official documentation",
+      "query": "Direct versioned least_squares page",
+      "total_results": null,
+      "returned_count": 1,
+      "version": "1.17.0"
+    },
+    {
+      "source": "Prior foundational reference",
+      "query": "Retained Raue et al. DOI 10.1093/bioinformatics/btp358",
+      "total_results": null,
+      "returned_count": 1,
+      "access": "Previously checked citation and methodological description; not new full-text screening."
+    }
+  ],
+  "scope": "Practical sensitivity and parameter identifiability for fixed archived Michaelis–Menten fits",
+  "searches": [
+    {
+      "id": "E1",
+      "source": "PubMed connector",
+      "query": "(\"enzyme kinetics\"[Title/Abstract] AND (identifiability[Title/Abstract] OR \"parameter estimation\"[Title/Abstract] OR \"sensitivity analysis\"[Title/Abstract]))",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "publication_date",
+      "max_results": 12,
+      "max_abstract_chars": 5500,
+      "total_results": 12,
+      "returned_count": 12,
+      "retrieved_pmids": [
+        "42627733",
+        "42429962",
+        "41899831",
+        "40288296",
+        "39322800",
+        "37165287",
+        "37690685",
+        "37760010",
+        "36152931",
+        "36030487",
+        "36353484",
+        "34888715"
+      ],
+      "next_offset": null,
+      "pagination_limited": false,
+      "warnings": [],
+      "query_translation": "\"enzyme kinetics\"[Title/Abstract] AND (\"identifiability\"[Title/Abstract] OR \"parameter estimation\"[Title/Abstract] OR \"sensitivity analysis\"[Title/Abstract]) AND 2022/01/01:2026/10/20[Date - Publication]",
+      "field_pages": []
+    },
+    {
+      "id": "E2",
+      "source": "PubMed connector",
+      "query": "\"Structural and practical identifiability analysis in bioengineering\"[Title]",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "publication_date",
+      "max_results": 5,
+      "max_abstract_chars": 6000,
+      "total_results": 0,
+      "returned_count": 0,
+      "retrieved_pmids": [],
+      "next_offset": null,
+      "pagination_limited": false,
+      "warnings": [
+        "\"Structural and practical identifiability analysis in bioengineering\"[Title]",
+        "No items found."
+      ],
+      "query_translation": "\"Structural and practical identifiability analysis in bioengineering\"[Title] AND 2022/01/01:2026/10/20[pdat]",
+      "field_pages": []
+    },
+    {
+      "id": "E3",
+      "source": "PubMed connector",
+      "query": "10.1186/s13036-024-00410-x",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "publication_date",
+      "max_results": 5,
+      "max_abstract_chars": 6000,
+      "total_results": 1,
+      "returned_count": 1,
+      "retrieved_pmids": [
+        "38438947"
+      ],
+      "next_offset": null,
+      "pagination_limited": false,
+      "warnings": [],
+      "query_translation": "\"10 1186 s13036 024 00410 x\"[All Fields] AND 2022/01/01:2026/10/20[Date - Publication]",
+      "field_pages": []
+    }
+  ],
+  "screening": [
+    {
+      "pmid": "42627733",
+      "title": "Interactive visualization of enzyme kinetics: a shiny app for biomedical, pharmacology, and biochemistry education.",
+      "displayed_publication_date": "2026 Dec 01",
+      "doi": "10.1152/advan.00294.2025",
+      "decision": "exclude",
+      "reason": "Displayed issue date after cutoff; timing not resolved; not used.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "42429962",
+      "title": "A computational framework for building dynamic bioreactor models integrating detailed enzyme kinetics with limited data: beta-ionone production in Saccharomyces cerevisiae as a case study.",
+      "displayed_publication_date": "2026 Aug",
+      "doi": "10.1007/s00449-026-03384-w",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "41899831",
+      "title": "A Mathematical Model of Cysteine-Driven Metabolic Adaptation to Hypoxia in Ovarian Cancer.",
+      "displayed_publication_date": "2026 Mar 04",
+      "doi": "10.3390/bioengineering13030300",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "40288296",
+      "title": "A mathematical model for activated platelet-dependent activation of coagulation factor X by factor IXa.",
+      "displayed_publication_date": "2025 Jun",
+      "doi": "10.1016/j.compbiomed.2025.110263",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "39322800",
+      "title": "GlyCompute: towards the automated analysis of protein N-linked glycosylation kinetics via an open-source computational framework.",
+      "displayed_publication_date": "2025 Feb",
+      "doi": "10.1007/s00216-024-05522-3",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "37165287",
+      "title": "Identifiability of enzyme kinetic parameters in substrate competition: a case study of CD39/NTPDase1.",
+      "displayed_publication_date": "2024 Jun",
+      "doi": "10.1007/s11302-023-09942-1",
+      "decision": "include",
+      "reason": "Primary enzyme identifiability case study; used only for limitations, abstract-only.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "37690685",
+      "title": "Phase plane dynamics of ERK phosphorylation.",
+      "displayed_publication_date": "2023 Nov",
+      "doi": "10.1016/j.jbc.2023.105234",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "37760010",
+      "title": "Modelling the Decamerisation Cycle of PRDX1 and the Inhibition-like Effect on Its Peroxidase Activity.",
+      "displayed_publication_date": "2023 Sep 01",
+      "doi": "10.3390/antiox12091707",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "36152931",
+      "title": "Interrogating the effect of enzyme kinetics on metabolism using differentiable constraint-based models.",
+      "displayed_publication_date": "2022 Nov",
+      "doi": "10.1016/j.ymben.2022.09.002",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "36030487",
+      "title": "Development of a kinetic model and figures of merit for formaldehyde carboligations catalyzed by formolase enzymes.",
+      "displayed_publication_date": "2022 Nov",
+      "doi": "10.1002/bit.28217",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "36353484",
+      "title": "Physiologically based pharmacokinetic (PBPK) modeling of the role of CYP2D6 polymorphism for metabolic phenotyping with dextromethorphan.",
+      "displayed_publication_date": "2022",
+      "doi": "10.3389/fphar.2022.1029073",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "34888715",
+      "title": "Beyond the Michaelis-Menten: Bayesian Inference for Enzyme Kinetic Analysis.",
+      "displayed_publication_date": "2022",
+      "doi": "10.1007/978-1-0716-1767-0_3",
+      "decision": "exclude",
+      "reason": "Different target/task or mechanistic application; not needed for concentration sensitivity or saved-run audit.",
+      "screened_material": "PubMed title and abstract"
+    },
+    {
+      "pmid": "38438947",
+      "title": "Structural and practical identifiability analysis in bioengineering: a beginner's guide.",
+      "displayed_publication_date": "2024 Mar 04",
+      "doi": "10.1186/s13036-024-00410-x",
+      "decision": "include",
+      "reason": "Primary illustrative identifiability analysis with accessible publisher text; concept support.",
+      "screened_material": "PubMed title and abstract"
+    }
+  ],
+  "counts": {
+    "recent_search_return_events": 13,
+    "unique_recent_pmids_screened": 13,
+    "recent_pmids_included": 2,
+    "official_resources_appraised": 2,
+    "foundational_method_sources_retained": 1
+  }
+}

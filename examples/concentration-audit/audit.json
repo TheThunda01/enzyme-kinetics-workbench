@@ -1,0 +1,52 @@
+{
+  "audit": "leave-one-concentration-level-out sensitivity",
+  "baseline_fits": {
+    "treated": {
+      "at_computational_bound": false,
+      "attempted_starts": 9,
+      "converged_starts": 9,
+      "km": 0.06412128093943996,
+      "local_parameter_correlation": 0.76508370096847,
+      "log_parameter_information_condition": 40.65225275568443,
+      "n": 12,
+      "residual_sd": 10.933658191288767,
+      "rmse": 9.981018712366653,
+      "rss": 1195.4488144393595,
+      "vmax": 212.68374266619924
+    },
+    "untreated": {
+      "at_computational_bound": false,
+      "attempted_starts": 9,
+      "converged_starts": 9,
+      "km": 0.047708185072837556,
+      "local_parameter_correlation": 0.7768270846274596,
+      "log_parameter_information_condition": 44.22207321875197,
+      "n": 11,
+      "residual_sd": 9.773003028634966,
+      "rmse": 8.840013851178853,
+      "rss": 859.6042937793738,
+      "vmax": 160.28004654942555
+    }
+  },
+  "boundary_refits": 0,
+  "input_sha256": {
+    "Puromycin.R": "87a14de98652c3f861d4477752d3293c7943045d6492b59c1d5c0939932feab8",
+    "Puromycin.Rd": "40359bad37dfcbb1750c3a527b539558b1ccd2cde9faccbde0209996e908e482",
+    "puromycin.csv": "38485c080eb7babdabf1e8849b5f08c0b81b0c524a62d7b223eae3399cb49514"
+  },
+  "max_absolute_percent_changes": {
+    "treated": {
+      "km": 12.656113470571828,
+      "vmax": 1.9728668148528583
+    },
+    "untreated": {
+      "km": 27.356952688103387,
+      "vmax": 3.901843171264119
+    }
+  },
+  "omitted_rows_total": 23,
+  "refits": 12,
+  "schema_version": "1.0",
+  "scope": "Descriptive sensitivity within the same archived experiments; not independent test performance, confidence intervals, or a reason to remove observations.",
+  "source_commit": "3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2"
+}
