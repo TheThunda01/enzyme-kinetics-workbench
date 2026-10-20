@@ -1,0 +1,68 @@
+{
+  "search_date": "2026-10-20",
+  "round": "02",
+  "scope": "Same-day focused update: independent numerical verification of saved enzyme fits.",
+  "inclusion_criteria": [
+    "Primary studies directly relevant to numerical verification or evaluation reliability; official documentation for implemented mathematics and software",
+    "Recent discovery window 2022-01-01 through 2026-10-20; earlier retained references remain separately attributed"
+  ],
+  "exclusion_criteria": [
+    "Unrelated laboratory workflows or measurement domains",
+    "No extension to new biological models or claimed prospective validation"
+  ],
+  "searches": [
+    {
+      "source": "PubMed connector",
+      "query": "(\"variable projection\"[Title/Abstract]) AND (kinetic*[Title/Abstract] OR biochemical[Title/Abstract])",
+      "date_from": "2022/01/01",
+      "date_to": "2026/10/20",
+      "date_type": "publication",
+      "sort": "relevance",
+      "max_results": 6,
+      "max_abstract_chars": 3500,
+      "total_results": 0,
+      "returned_count": 0,
+      "retrieved_ids": [],
+      "next_offset": null,
+      "pagination_limited": false,
+      "warnings": [
+        "No items found."
+      ],
+      "query_translation": "\"variable projection\"[Title/Abstract] AND (\"kinetic*\"[Title/Abstract] OR \"biochemical\"[Title/Abstract]) AND 2022/01/01:2026/10/20[Date - Publication]",
+      "field_pages": [],
+      "limits": "No matching records; not evidence that no relevant methods exist.",
+      "id": "enzyme-r2-01"
+    }
+  ],
+  "screening": [
+    {
+      "record_type": "search_outcome",
+      "search_id": "enzyme-r2-01",
+      "decision": "no_records_to_screen",
+      "retrieved_count": 0,
+      "reason": "The executed PubMed query returned zero records. No publication-level inclusion or exclusion decision was possible; official supplementary sources were appraised separately."
+    }
+  ],
+  "supplementary_sources": [
+    {
+      "source": "Official R Puromycin manual",
+      "url": "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html",
+      "version": "Included R source pinned at 3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2",
+      "access": "Example using partial linearity inspected",
+      "total_results": null
+    },
+    {
+      "source": "Official SciPy minimize_scalar",
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.minimize_scalar.html",
+      "version": "1.17.0",
+      "access": "API and Notes inspected",
+      "total_results": null
+    }
+  ],
+  "counts": {
+    "returned_records": 0,
+    "unique_screened": 0,
+    "new_primary_sources_included": 0
+  },
+  "review_limitations": "Single-reviewer bounded update on the same date as round 01; this is a new implementation question, not elapsed-time literature surveillance."
+}

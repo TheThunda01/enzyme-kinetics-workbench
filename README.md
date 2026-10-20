@@ -42,6 +42,12 @@ Run the new sensitivity audit separately:
 python audit_kinetics.py
 ```
 
+The independent numerical check compares all 16 saved full-range, low-range and omitted-level fits using an analytic maximum-rate solution and a one-dimensional half-saturation search:
+
+```bash
+python verify_kinetics.py
+```
+
 ## Example results
 
 | Archived label | Observations | Fitted maximum rate, counts/min/min | Fitted half-saturation, ppm | Approximate 95% profile interval, ppm |
@@ -54,6 +60,8 @@ These are separate descriptive fits, not an estimate of a causal treatment effec
 ![Observed rates, fitted curves and marked extrapolation](results/fitted_curves.png)
 
 Across the 12 concentration-level refits, the largest absolute change in apparent Km is 12.66% for the treated label and 27.36% for the untreated label. These are sensitivity summaries, not confidence limits. See the [audit report](examples/concentration-audit/report.md).
+
+All 16 saved fits also pass the [independent numerical check](examples/numerical-verification/verification.json), using relative tolerance `1e-5` and absolute tolerance `1e-7` for parameters and residual sums of squares. This compares the same objective using different numerical code.
 
 ## Practical use and limitations
 

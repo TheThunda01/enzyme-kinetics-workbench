@@ -15,3 +15,4 @@ jobs:
       - run: python -m unittest discover -s tests -v
       - run: python kinetics.py --out /tmp/enzyme-kinetics-results
       - run: python audit_kinetics.py --out /tmp/enzyme-kinetics-audit
+      - run: python verify_kinetics.py --results-dir /tmp/enzyme-kinetics-results --audit-dir /tmp/enzyme-kinetics-audit --out /tmp/enzyme-kinetics-verification

@@ -1,0 +1,22 @@
+{
+  "atol": 1e-07,
+  "bounds": [
+    1e-09,
+    1000000000.0
+  ],
+  "fits_checked": 16,
+  "input_sha256": {
+    "Puromycin.R": "87a14de98652c3f861d4477752d3293c7943045d6492b59c1d5c0939932feab8",
+    "Puromycin.Rd": "40359bad37dfcbb1750c3a527b539558b1ccd2cde9faccbde0209996e908e482",
+    "puromycin.csv": "38485c080eb7babdabf1e8849b5f08c0b81b0c524a62d7b223eae3399cb49514"
+  },
+  "method": "Analytic conditional Vmax; 801-point log-Km scan and bounded scalar minimization",
+  "rtol": 1e-05,
+  "saved_result_sha256": {
+    "concentration_sensitivity.csv": "457b003b1f66d1bd072bab9c68642406f8d83cdb5a5cfe7fea5dc9c042fd2215",
+    "parameter_estimates.csv": "ecef706dcfd2305d9c6e25a644cc0d32a049fe4e4235128e90afa0577fc38ce2"
+  },
+  "schema_version": "1.0",
+  "scope": "Same bounded least-squares objective, different numerical implementation. Agreement is not biological validation or proof of a global minimum.",
+  "status": "passed"
+}
