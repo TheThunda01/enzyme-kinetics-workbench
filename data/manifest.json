@@ -1,0 +1,25 @@
+{
+  "source_commit": "3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2",
+  "retrieved": "2026-10-20",
+  "upstream_license": "R datasets: GPL-2.0-or-later",
+  "files": [
+    {
+      "path": "Puromycin.R",
+      "sha256": "87a14de98652c3f861d4477752d3293c7943045d6492b59c1d5c0939932feab8",
+      "source_url": "https://raw.githubusercontent.com/wch/r-source/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/data/Puromycin.R",
+      "bytes": 735
+    },
+    {
+      "path": "Puromycin.Rd",
+      "sha256": "40359bad37dfcbb1750c3a527b539558b1ccd2cde9faccbde0209996e908e482",
+      "source_url": "https://raw.githubusercontent.com/wch/r-source/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/man/Puromycin.Rd",
+      "bytes": 2776
+    },
+    {
+      "path": "puromycin.csv",
+      "sha256": "38485c080eb7babdabf1e8849b5f08c0b81b0c524a62d7b223eae3399cb49514",
+      "source": "Deterministic conversion of bundled Puromycin.R, preserve row order and values",
+      "bytes": 485
+    }
+  ]
+}

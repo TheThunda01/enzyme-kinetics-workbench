@@ -1,0 +1,23 @@
+# References, source checks and related tools
+
+Sources below were checked on 2026-10-20. The biological discussion deliberately stays within what the retained data and these sources support. A citation to a method does not validate that method's assumptions for this archive.
+
+1. **R Core Team. `Puromycin`: Reaction Velocity of an Enzymatic Reaction.** [Official R manual](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html), plus the [pinned source documentation](https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/man/Puromycin.Rd) and [data source](https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/data/Puromycin.R). This establishes the archived variables, units, one treated and one untreated experiment, historical attribution and example equation. The web manual can change; the included files and their hashes are the reproducibility record.
+
+2. **Briggs GE, Haldane JBS (1925). A Note on the Kinetics of Enzyme Action.** *Biochemical Journal* 19(2):338–339. [doi:10.1042/bj0190338](https://doi.org/10.1042/bj0190338). Primary theoretical source for the steady-state enzyme-kinetics treatment. It supports the distinction between a kinetic half-saturation parameter and a general binding constant, not a mechanistic interpretation of this particular archive.
+
+3. **Johnson KA, Goody RS (2011). The Original Michaelis Constant: Translation of the 1913 Michaelis–Menten Paper.** *Biochemistry* 50(39):8264–8269. [doi:10.1021/bi201284u](https://doi.org/10.1021/bi201284u); [open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3381512/). Translation of the historical primary paper with analysis of its original assumptions. The original experiments are not the `Puromycin` experiment.
+
+4. **Raue A, Kreutz C, Maiwald T, et al. (2009). Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood.** *Bioinformatics* 25(15):1923–1929. [doi:10.1093/bioinformatics/btp358](https://doi.org/10.1093/bioinformatics/btp358). Primary methodological work underlying the general profiling approach and distinction between structural and practical identifiability. Our two-parameter static model and unknown-variance likelihood calculation are implemented independently; this repository does not reproduce the paper's biological models.
+
+5. **Wanika L, Egan JR, Swaminathan N, et al. (2024). Structural and practical identifiability analysis in bioengineering: a beginner's guide.** *Journal of Biological Engineering* 18:20. [doi:10.1186/s13036-024-00410-x](https://doi.org/10.1186/s13036-024-00410-x). An open research article applying identifiability methods to several biological models. Its discussion supports examining parameter constraints rather than treating visual agreement as unique parameter identification. We do not import its data, code, specific threshold conventions or experimental conclusions.
+
+The R manual credits **Bates DM and Watts DG (1988), *Nonlinear Regression Analysis and Its Applications*, Appendix A1.3**, and **Treloar MA (1974), *Effects of Puromycin on Galactosyltransferase in Golgi Membranes*, University of Toronto master's thesis**. These are upstream attributions: the original thesis and book were not independently reanalyzed here, so we do not infer missing assay details from their titles.
+
+## Software and ideas from existing repositories
+
+- [R source mirror](https://github.com/wch/r-source/tree/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets): the two included upstream files are pinned at commit `3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2`. The choice of separate Michaelis–Menten fits follows the documented R example. The data were converted; R fitting code was not copied into Python. The unmodified files and converted data retain GPL-2.0-or-later terms.
+- [SciPy](https://github.com/scipy/scipy/tree/v1.17.0) is an installed dependency. The implementation calls `least_squares`, `brentq` and the chi-square quantile function, using [the official versioned documentation](https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.least_squares.html). SciPy provides numerical routines, not biological validation. Its source has not been vendored into this repository.
+- NumPy 2.3.5, pandas 2.2.3 and Matplotlib 3.10.8 provide array operations, tables and figures. Exact installed versions are written into every `summary.json`; dependency licenses remain their own.
+
+This project adapts published concepts and uses established software through its APIs. It claims neither authorship of the Michaelis–Menten model nor reuse of an uninspected external analysis pipeline.

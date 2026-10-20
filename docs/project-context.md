@@ -1,0 +1,13 @@
+# Why this project exists
+
+An enzyme-kinetics plot can look persuasive long before the underlying parameters are well determined. A curve that rises and levels off is easy to recognize. Deciding what its height and bend mean requires a closer look at the measurements, the chosen model and the range that was actually observed.
+
+This workbench explores that problem with R's archived `Puromycin` dataset. Its 23 observations contain substrate concentration, initial reaction rate and a treated or untreated label. The original units are retained throughout. The official documentation traces the data through Bates and Watts to Treloar's 1974 thesis, but the small table does not retain enough experimental detail for a new biological or causal interpretation. [The provenance note](../data/README.md) separates that attribution from what the archive actually records.
+
+The first question is practical: can a transparent nonlinear analysis reproduce a reasonable description of these observations? The script fits the two groups separately, keeps the parameters positive and reports residuals alongside the estimates. It then asks a harder question: how many other parameter values remain compatible with the observations under an explicit error model? Profile likelihood addresses that by varying the half-saturation parameter and refitting the maximum rate. This approach connects the project to established work on practical identifiability, including [Raue and colleagues](https://doi.org/10.1093/bioinformatics/btp358) and a [2024 bioengineering study](https://doi.org/10.1186/s13036-024-00410-x).
+
+The next step removes the high-concentration observations and repeats the fit. It is a sensitivity exercise using the same archive, not a new experiment. A final, dimensionless calculation compares three hypothetical concentration ranges. It makes the link between information and measurement range visible while holding the model and noise assumptions fixed.
+
+The broader point is that computation can help ask sharper biological questions without pretending the available data answer all of them. This repository demonstrates nonlinear optimization, analytic derivatives, uncertainty profiling, scientific visualization and reproducible data handling. Equally important, it demonstrates restraint: there is no inferred drug mechanism, binding affinity or treatment effect.
+
+Read the [biology and concepts](biology-and-concepts.md) for the reasoning behind the model, the [methods](methods.md) for the exact calculation, and the [example report](../results/report.md) for the outputs. The recurring themes are measurement, model assumptions, identifiability and the difference between interpolation and extrapolation.

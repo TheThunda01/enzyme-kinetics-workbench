@@ -1,0 +1,120 @@
+{
+  "data_kind": "23 archived observations; no new biological experiment",
+  "fits": {
+    "treated": {
+      "full_range": {
+        "at_computational_bound": false,
+        "attempted_starts": 9,
+        "concentration_max": 1.1,
+        "concentration_min": 0.02,
+        "converged_starts": 9,
+        "km": 0.06412128093943996,
+        "km_profile": {
+          "approximate_95_percent_lower": 0.04889635995465862,
+          "approximate_95_percent_upper": 0.0830135411002486,
+          "assumptions": "Independent additive Gaussian errors with common unknown variance; asymptotic chi-square cutoff, not calibrated small-sample coverage",
+          "cutoff": 3.841458820694124,
+          "lower_closed": true,
+          "upper_closed": true
+        },
+        "local_parameter_correlation": 0.76508370096847,
+        "log_parameter_information_condition": 40.65225275568443,
+        "n": 12,
+        "residual_sd": 10.933658191288767,
+        "rmse": 9.981018712366653,
+        "rss": 1195.4488144393595,
+        "vmax": 212.68374266619924
+      },
+      "low_range_only": {
+        "at_computational_bound": false,
+        "attempted_starts": 9,
+        "concentration_max": 0.11,
+        "concentration_min": 0.02,
+        "converged_starts": 9,
+        "km": 0.038921869582626216,
+        "km_profile": {
+          "approximate_95_percent_lower": 0.017444260508176643,
+          "approximate_95_percent_upper": 0.09166329187166829,
+          "assumptions": "Independent additive Gaussian errors with common unknown variance; asymptotic chi-square cutoff, not calibrated small-sample coverage",
+          "cutoff": 3.841458820694124,
+          "lower_closed": true,
+          "upper_closed": true
+        },
+        "local_parameter_correlation": 0.9427055685914615,
+        "log_parameter_information_condition": 81.17886212137576,
+        "n": 6,
+        "residual_sd": 12.719897871369612,
+        "rmse": 10.385753121723148,
+        "rss": 647.1832074322928,
+        "vmax": 174.49674458855822
+      }
+    },
+    "untreated": {
+      "full_range": {
+        "at_computational_bound": false,
+        "attempted_starts": 9,
+        "concentration_max": 1.1,
+        "concentration_min": 0.02,
+        "converged_starts": 9,
+        "km": 0.047708185072837556,
+        "km_profile": {
+          "approximate_95_percent_lower": 0.03339296687048125,
+          "approximate_95_percent_upper": 0.06642883005523849,
+          "assumptions": "Independent additive Gaussian errors with common unknown variance; asymptotic chi-square cutoff, not calibrated small-sample coverage",
+          "cutoff": 3.841458820694124,
+          "lower_closed": true,
+          "upper_closed": true
+        },
+        "local_parameter_correlation": 0.7768270846274596,
+        "log_parameter_information_condition": 44.22207321875197,
+        "n": 11,
+        "residual_sd": 9.773003028634966,
+        "rmse": 8.840013851178853,
+        "rss": 859.6042937793738,
+        "vmax": 160.28004654942555
+      },
+      "low_range_only": {
+        "at_computational_bound": false,
+        "attempted_starts": 9,
+        "concentration_max": 0.11,
+        "concentration_min": 0.02,
+        "converged_starts": 9,
+        "km": 0.024662148857468147,
+        "km_profile": {
+          "approximate_95_percent_lower": 0.011547482242053927,
+          "approximate_95_percent_upper": 0.049952571182733066,
+          "assumptions": "Independent additive Gaussian errors with common unknown variance; asymptotic chi-square cutoff, not calibrated small-sample coverage",
+          "cutoff": 3.841458820694124,
+          "lower_closed": true,
+          "upper_closed": true
+        },
+        "local_parameter_correlation": 0.9122488559332601,
+        "log_parameter_information_condition": 75.17850822371254,
+        "n": 6,
+        "residual_sd": 9.336915329345652,
+        "rmse": 7.623559442822398,
+        "rss": 348.7119514694793,
+        "vmax": 126.7517740985173
+      }
+    }
+  },
+  "input_sha256": {
+    "Puromycin.R": "87a14de98652c3f861d4477752d3293c7943045d6492b59c1d5c0939932feab8",
+    "Puromycin.Rd": "40359bad37dfcbb1750c3a527b539558b1ccd2cde9faccbde0209996e908e482",
+    "puromycin.csv": "38485c080eb7babdabf1e8849b5f08c0b81b0c524a62d7b223eae3399cb49514"
+  },
+  "limitations": [
+    "Enzyme identity and assay details not established from the retained metadata.",
+    "Repeated concentration rows are not assumed to be independent biological replicates.",
+    "No causal treatment comparison or inhibition-mechanism inference.",
+    "Profile intervals are conditional and asymptotic; local information scenarios are hypothetical."
+  ],
+  "source_commit": "3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2",
+  "version": "0.1.0",
+  "versions": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scipy": "1.17.0"
+  }
+}

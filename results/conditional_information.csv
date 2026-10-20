@@ -1,0 +1,4 @@
+scenario,points,information_condition_number,information_determinant,local_parameter_correlation
+low_only,12,936.6157645,9.568813942e-05,0.9977926364
+near_km,12,694.1530047,0.01887410482,0.9955485986
+wide_range,12,34.45704981,0.580188135,0.7452613428
