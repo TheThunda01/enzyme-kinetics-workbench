@@ -87,6 +87,8 @@ The model assumes a simple saturating relationship. A good fit does not verify i
 
 ## Documentation
 
+The [21 October 2026 maintenance and scientific review](docs/review-2026-10-21.md) records the latest checks and their limits. Earlier review records remain available below.
+
 | Guide | What you will find |
 | --- | --- |
 | [Project context](docs/project-context.md) | Question, rationale and skills |

@@ -47,6 +47,15 @@
       "corrections": [],
       "alternate_urls": [
         "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html"
+      ],
+      "rechecks": [
+        {
+          "review_date": "2026-10-21",
+          "source_url": "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html",
+          "access_level": "official_documentation",
+          "finding": "The current official manual still gives 23 observations, recorded units, one experiment per label, and separate nonlinear fits. It does not resolve the cells/enzyme wording or missing assay metadata.",
+          "limits": "Targeted source/version check, not independent validation of the project's scientific result."
+        }
       ]
     },
     {
@@ -72,6 +81,20 @@
       "alternate_urls": [
         "https://pubmed.ncbi.nlm.nih.gov/16743508/",
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC1259181/"
+      ],
+      "rechecks": [
+        {
+          "review_date": "2026-10-21",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/16743508/",
+          "access_level": "metadata_only",
+          "verified_fields": [
+            "article title",
+            "issue year",
+            "DOI"
+          ],
+          "finding": "Title, issue year and DOI agree with the cited item. This pass did not appraise the article body.",
+          "limits": "No full-text reappraisal or new systematic search is claimed; earlier access records are preserved."
+        }
       ]
     },
     {
@@ -99,6 +122,20 @@
       "alternate_urls": [
         "https://pubmed.ncbi.nlm.nih.gov/21888353/",
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC3381512/"
+      ],
+      "rechecks": [
+        {
+          "review_date": "2026-10-21",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/21888353/",
+          "access_level": "abstract",
+          "verified_fields": [
+            "article title",
+            "issue year",
+            "DOI"
+          ],
+          "finding": "Title, issue year and DOI agree with the cited item. The abstract was re-read for the limited claim used in this project.",
+          "limits": "No full-text reappraisal or new systematic search is claimed; earlier access records are preserved."
+        }
       ]
     },
     {
@@ -120,9 +157,23 @@
         "Abstract and bibliographic record inspected. This is a different model setting; its citation does not justify the archive’s independent Gaussian errors or the exact unknown-variance implementation."
       ],
       "corrections": [],
-      "citation": "Raue A et al.. (2009). Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood. Bioinformatics, 25(15), 1923–1929.",
+      "citation": "Raue A et al. (2009). Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood. Bioinformatics, 25(15), 1923–1929.",
       "alternate_urls": [
         "https://pubmed.ncbi.nlm.nih.gov/19505944/"
+      ],
+      "rechecks": [
+        {
+          "review_date": "2026-10-21",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/19505944/",
+          "access_level": "abstract",
+          "verified_fields": [
+            "article title",
+            "issue year",
+            "DOI"
+          ],
+          "finding": "Title, issue year and DOI agree with the cited item. The abstract was re-read for the limited claim used in this project.",
+          "limits": "No full-text reappraisal or new systematic search is claimed; earlier access records are preserved."
+        }
       ]
     },
     {
@@ -144,10 +195,24 @@
         "Abstract and first 16,000 of 98,608 extracted full-text characters inspected, covering introductory/method context; not a complete article appraisal. Its dynamic systems are not this dataset."
       ],
       "corrections": [],
-      "citation": "Wanika L et al.. (2024). Structural and practical identifiability analysis in bioengineering: a beginner’s guide. Journal of Biological Engineering, 18(1), 20.",
+      "citation": "Wanika L et al. (2024). Structural and practical identifiability analysis in bioengineering: a beginner’s guide. Journal of Biological Engineering, 18(1), 20.",
       "alternate_urls": [
         "https://pubmed.ncbi.nlm.nih.gov/38438947/",
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC11465550/"
+      ],
+      "rechecks": [
+        {
+          "review_date": "2026-10-21",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/38438947/",
+          "access_level": "abstract",
+          "verified_fields": [
+            "article title",
+            "issue year",
+            "DOI"
+          ],
+          "finding": "Title, issue year and DOI agree with the cited item. The abstract was re-read for the limited claim used in this project.",
+          "limits": "No full-text reappraisal or new systematic search is claimed; earlier access records are preserved."
+        }
       ]
     },
     {
@@ -171,10 +236,24 @@
       "corrections": [
         "Added the complete bibliographic entry for a source previously cited only in the literature review; distinguished issue and online years."
       ],
-      "citation": "McGuinness AN et al.. (2024). Identifiability of enzyme kinetic parameters in substrate competition: a case study of CD39/NTPDase1. Purinergic Signalling, 20(3), 257–271.",
+      "citation": "McGuinness AN et al. (2024). Identifiability of enzyme kinetic parameters in substrate competition: a case study of CD39/NTPDase1. Purinergic Signalling, 20(3), 257–271.",
       "alternate_urls": [
         "https://pubmed.ncbi.nlm.nih.gov/37165287/",
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC11189375/"
+      ],
+      "rechecks": [
+        {
+          "review_date": "2026-10-21",
+          "source_url": "https://pubmed.ncbi.nlm.nih.gov/37165287/",
+          "access_level": "metadata_only",
+          "verified_fields": [
+            "article title",
+            "issue year",
+            "DOI"
+          ],
+          "finding": "Title, issue year and DOI agree with the cited item. This pass did not appraise the article body.",
+          "limits": "No full-text reappraisal or new systematic search is claimed; earlier access records are preserved."
+        }
       ]
     },
     {

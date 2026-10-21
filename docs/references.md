@@ -1,6 +1,6 @@
 # References and source roles
 
-References are cited by author and year. The [reference audit](reference-audit.json) records the checked metadata, source role and exact access limits for every item below. Checks were completed on 21 October 2026 UTC as part of the review dated 20 October in the user’s local date. Earlier discovery and access records remain in the [literature review](literature-review.md).
+References are cited by author and year. The [reference audit](reference-audit.json) records the checked metadata, source role and exact access limits for every item below. Checks were completed on 21 October 2026 UTC as part of the review dated 20 October in the user’s local date. Earlier discovery and access records remain in the [literature review](literature-review.md). The [21 October maintenance review](review-2026-10-21.md) adds separately dated source rechecks without replacing those earlier access records.
 
 ## Data and historical attribution
 
