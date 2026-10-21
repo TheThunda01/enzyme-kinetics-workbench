@@ -25,6 +25,6 @@ The horizontal line is the approximate 95% likelihood-ratio cutoff. An open prof
 
 ![Conditional information scenarios](conditional_information.png)
 
-These dimensionless comparisons fix Vmax = Km = 1, twelve independent measurements and unit error variance. The grids are mathematical scenarios, not observed data or validated experimental designs. Lower condition numbers indicate less local degeneracy for the chosen log-parameter coordinates only.
+These dimensionless comparisons fix $`V_{\max}=K_m=1`$, twelve independent measurements and unit error variance. The grids are mathematical scenarios, not observed data or validated experimental designs. Lower condition numbers indicate less local degeneracy for the chosen log-parameter coordinates only.
 
 See [methods](../docs/methods.md), [biology and concepts](../docs/biology-and-concepts.md), and [provenance](../data/README.md) before interpreting these estimates.

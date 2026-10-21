@@ -24,11 +24,11 @@ python audit_kinetics.py --out /tmp/kinetics-audit
 python verify_kinetics.py --results-dir /tmp/kinetics-main --audit-dir /tmp/kinetics-audit --out /tmp/kinetics-verification
 ```
 
-The included audit runs 12 refits and omits each of the 23 rows exactly once. Here Km denotes the apparent half-saturation concentration and Vmax the fitted limiting rate. The largest absolute Km changes are 12.66% for `treated` and 27.36% for `untreated`; the corresponding maximum absolute Vmax changes are 1.97% and 3.90%. These maxima may arise from different omissions. They describe perturbations of these observations, not confidence intervals or general error rates. Read the individual rows before drawing a conclusion about a concentration's role.
+The included audit runs 12 refits and omits each of the 23 rows exactly once. Here $`K_m`$ denotes the apparent half-saturation concentration and $`V_{\max}`$ the fitted limiting rate. The largest absolute $`K_m`$ changes are 12.66% for `treated` and 27.36% for `untreated`; the corresponding maximum absolute $`V_{\max}`$ changes are 1.97% and 3.90%. These maxima may arise from different omissions. They describe perturbations of these observations, not confidence intervals or general error rates. Read the individual rows before drawing a conclusion about a concentration's role.
 
 ## Checks before relying on a result
 
-- Confirm the source hashes and original units. A Km recorded in ppm is not a molar binding affinity.
+- Confirm the source hashes and original units. A $`K_m`$ recorded in ppm is not a molar binding affinity.
 - Check which rows left each fit, whether an endpoint was removed and whether the optimizer reached a computational bound.
 - Compare parameter movement with residual behavior and the existing profile, rather than treating one summary as a verdict on a point.
 - Keep every original observation. Sensitivity is a prompt for review; it is not evidence of an erroneous measurement.

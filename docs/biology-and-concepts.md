@@ -12,19 +12,19 @@ R attributes the dataset to Treloar's thesis, whose title mentions galactosyltra
 
 The fitted relationship is
 
-$$
+```math
 v(S)=\frac{V_{\max}S}{K_m+S}.
-$$
+```
 
-Here $S$ is substrate concentration and $v$ is initial rate. $V_{\max}$ is the model's limiting rate as substrate becomes very large. $K_m$ is the concentration at which that model predicts half its limiting rate. These two definitions follow directly from the equation; they do not depend on identifying the molecular mechanism.
+Here $`S`$ is substrate concentration and $`v`$ is initial rate. $`V_{\max}`$ is the model's limiting rate as substrate becomes very large. $`K_m`$ is the concentration at which that model predicts half its limiting rate. These two definitions follow directly from the equation; they do not depend on identifying the molecular mechanism.
 
-The classical mechanistic interpretation begins with enzyme and substrate forming a complex that can dissociate or produce product. The steady-state approximation treats the enzyme–substrate complex as changing negligibly during the initial-rate period. Under that treatment, $K_m=(k_{-1}+k_{\mathrm{cat}})/k_1$. Here `k1` describes association, `k−1` dissociation and `kcat` catalytic turnover for that simple mechanism. Km therefore does not generally equal the equilibrium binding dissociation constant, Kd. Briggs and Haldane developed the steady-state treatment; Johnson and Goody discuss the historical Michaelis–Menten work and its assumptions. [Briggs and Haldane (1925) and Johnson and Goody (2011)](references.md#kinetics-and-identifiability)
+The classical mechanistic interpretation begins with enzyme and substrate forming a complex that can dissociate or produce product. The steady-state approximation treats the enzyme–substrate complex as changing negligibly during the initial-rate period. Under that treatment, $`K_m=(k_{-1}+k_{\mathrm{cat}})/k_1`$. Here $`k_1`$ describes association, $`k_{-1}`$ dissociation and $`k_{\mathrm{cat}}`$ catalytic turnover for that simple mechanism. $`K_m`$ therefore does not generally equal the equilibrium binding dissociation constant, $`K_d`$. Briggs and Haldane developed the steady-state treatment; Johnson and Goody discuss the historical Michaelis–Menten work and its assumptions. [Briggs and Haldane (1925) and Johnson and Goody (2011)](references.md#kinetics-and-identifiability)
 
 For this archive, the fitted parameters are best described as **apparent kinetic parameters** in the recorded units. In particular, a value in ppm is not a molar binding affinity. The curve also assumes no extra baseline term, no substrate inhibition and no cooperative dependence. Those alternatives are not ruled out simply because a two-parameter curve fits reasonably well.
 
 ## Why measurement range matters
 
-At concentrations much smaller than $K_m$, the equation is approximately $v=(V_{\max}/K_m)S$. A nearly straight rising section mostly identifies a ratio: increasing both parameters together can leave similar predicted rates. At concentrations much larger than $K_m$, the curve approaches $V_{\max}$, while changes in $K_m$ have less influence. These are mathematical limits of this model, not claims about which conditions occurred in the original experiment.
+At concentrations much smaller than $`K_m`$, the equation is approximately $`v=(V_{\max}/K_m)S`$. A nearly straight rising section mostly identifies a ratio: increasing both parameters together can leave similar predicted rates. At concentrations much larger than $`K_m`$, the curve approaches $`V_{\max}`$, while changes in $`K_m`$ have less influence. These are mathematical limits of this model, not claims about which conditions occurred in the original experiment.
 
 The full archived range is 0.02–1.1 ppm. The workbench deliberately repeats the fits after retaining only concentrations at or below 0.11 ppm. Both estimated maximum rates change. This illustrates sensitivity to the observed range; it does not prove either estimate is biologically correct. The dotted extensions beyond 1.1 ppm make another distinction visible: they are extrapolations from the assumed curve, with no observations there to validate them.
 
@@ -32,13 +32,13 @@ The full archived range is 0.02–1.1 ppm. The workbench deliberately repeats th
 
 Structural identifiability asks whether perfect observations could distinguish parameters under a specified model. Practical identifiability asks how much the actual observations constrain them. The distinction matters because noise and a limited range can leave many plausible parameter combinations even when a model is identifiable in principle. [Raue et al. (2009) and Wanika et al. (2024)](references.md#kinetics-and-identifiability)
 
-This project explores practical uncertainty with a profile. For each candidate $K_m$, it finds the best accompanying $V_{\max}$ and measures how much worse the fit becomes. A shallow profile means that moving the parameter changes the best achievable fit only slightly. The displayed approximate intervals use a Gaussian, independent, constant-variance error model and an asymptotic likelihood-ratio cutoff. There are only 12 or 11 observations in the full groups, and their independence is not documented. The intervals are therefore conditional illustrations, not validated small-sample coverage statements.
+This project explores practical uncertainty with a profile. For each candidate $`K_m`$, it finds the best accompanying $`V_{\max}`$ and measures how much worse the fit becomes. A shallow profile means that moving the parameter changes the best achievable fit only slightly. The displayed approximate intervals use a Gaussian, independent, constant-variance error model and an asymptotic likelihood-ratio cutoff. There are only 12 or 11 observations in the full groups, and their independence is not documented. The intervals are therefore conditional illustrations, not validated small-sample coverage statements.
 
 Residuals show where observations lie above or below the fitted curve. A systematic pattern can suggest model mismatch; different scatter at different concentrations can challenge constant variance. A quiet-looking plot cannot prove either assumption with so few points. The script does not automatically delete observations or treat outliers as mistakes.
 
 ## Information, design and responsible interpretation
 
-A separate calculation compares low, near-half-saturation and wide concentration ranges for a hypothetical model with $V_{\max}=K_m=1$. It uses derivatives with respect to log parameters to quantify local sensitivity. Under independent equal-variance errors, the matrix $J^\mathsf{T}J$ summarizes local information. Its condition number indicates how unevenly the chosen parameter directions are informed.
+A separate calculation compares low, near-half-saturation and wide concentration ranges for a hypothetical model with $`V_{\max}=K_m=1`$. It uses derivatives with respect to log parameters to quantify local sensitivity. Under independent equal-variance errors, the matrix $`J^\mathsf{T}J`$ summarizes local information. Its condition number indicates how unevenly the chosen parameter directions are informed.
 
 The wide range is less degenerate in this specific calculation. That result depends on the fixed parameter values, noise model, units and log-parameter coordinates. It is not an optimized or experimentally validated assay plan. Real measurement choices would also require biological feasibility, costs, calibration and a defensible error model. [Wanika et al. (2024)](references.md#kinetics-and-identifiability)
 

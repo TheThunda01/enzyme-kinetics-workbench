@@ -12,11 +12,11 @@ These definitions explain how terms are used in this project. A software check, 
 | Puromycin; galactosyltransferase; Golgi membranes | Puromycin is the historical treatment label. Galactosyltransferase denotes an enzyme that transfers a galactose group; Golgi membranes belong to a cellular processing compartment. The latter terms occur in the upstream thesis title and do not establish the reduced table’s exact assay. |
 | ppm | Parts per million. The source records this concentration scale; converting to moles per volume would require additional substance and measurement information. |
 | counts/min/min | Change in radioactive counts per minute, per minute of reaction time: `(counts/min)/min`. This instrument-linked rate is not molecules per enzyme per second. |
-| Michaelis–Menten curve | The saturating function `v = Vmax*S/(Km+S)` used here. A fit to this shape does not by itself identify its molecular mechanism. |
-| Vmax; asymptote; saturation | Vmax is the curve’s limiting rate as substrate concentration increases. An asymptote is a limiting value approached by a curve. Observing a high concentration does not prove experimental saturation. |
-| Km; half-saturation | The substrate concentration at which this model predicts half of Vmax. Here it is an apparent parameter in ppm. |
+| Michaelis–Menten curve | The saturating function $`v=\frac{V_{\max}S}{K_m+S}`$ used here. A fit to this shape does not by itself identify its molecular mechanism. |
+| $`V_{\max}`$; asymptote; saturation | $`V_{\max}`$ is the curve’s limiting rate as substrate concentration increases. An asymptote is a limiting value approached by a curve. Observing a high concentration does not prove experimental saturation. |
+| $`K_m`$; half-saturation | The substrate concentration at which this model predicts half of $`V_{\max}`$. Here it is an apparent parameter in ppm. |
 | Apparent parameter | A parameter describing the fitted relationship in the recorded setting without establishing a unique microscopic interpretation. |
-| Binding affinity; dissociation constant Kd | Affinity concerns binding. Kd describes equilibrium dissociation in an appropriate binding model. Km generally also depends on catalytic rates and is not interchangeable with Kd. |
+| Binding affinity; dissociation constant $`K_d`$ | Affinity concerns binding. $`K_d`$ describes equilibrium dissociation in an appropriate binding model. $`K_m`$ generally also depends on catalytic rates and is not interchangeable with $`K_d`$. |
 | Turnover number, kcat | Catalytic events per enzyme per unit time in a specified kinetic model. The archive lacks the enzyme amount and calibrated rate required to estimate it. |
 | Steady-state approximation | For the classical simple mechanism, the enzyme–substrate complex changes slowly enough during initial-rate measurement to approximate its derivative as zero; this is not equilibrium of the whole reaction. |
 | Cooperativity; substrate inhibition; baseline | Cooperativity is interaction among binding/response events. Substrate inhibition is reduced rate at sufficiently high substrate. A baseline is an additive offset. None is included in the fitted two-parameter curve. |
@@ -28,8 +28,8 @@ These definitions explain how terms are used in this project. A software check, 
 | Term | Meaning here |
 | --- | --- |
 | Parameter; estimate; objective | A parameter is a model constant; an estimate is its fitted value. The objective is the quantity minimized, here the sum of squared residuals. |
-| Residual; RSS; RMSE | A residual is observed minus fitted rate. RSS is their squared sum. Root mean squared error (RMSE) is `sqrt(RSS/n)` here and uses the same rate units. |
-| Residual standard deviation; degrees of freedom | The reported residual standard deviation is `sqrt(RSS/(n-2))`; the two fitted parameters consume two degrees of freedom. This formula does not verify the error model. |
+| Residual; RSS; RMSE | A residual is observed minus fitted rate. RSS is their squared sum. Root mean squared error (RMSE) is $`\sqrt{\mathrm{RSS}/n}`$ here and uses the same rate units. |
+| Residual standard deviation; degrees of freedom | The reported residual standard deviation is $`\sqrt{\mathrm{RSS}/(n-2)}`$; the two fitted parameters consume two degrees of freedom. This formula does not verify the error model. |
 | Gaussian; independent; homoscedastic | Gaussian means normally distributed. Independence means one error does not inform another. Homoscedastic means constant error variance. The interval calculation assumes all three. |
 | Variance; standard deviation | Variance measures mean squared deviation; standard deviation is its square root, in the original measurement units. |
 | Likelihood; profile likelihood | A likelihood scores parameter values using an assumed observation model. A profile varies one parameter while optimizing the others, including the unknown noise variance here. |
