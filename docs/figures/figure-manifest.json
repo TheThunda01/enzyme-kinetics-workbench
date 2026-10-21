@@ -1,0 +1,30 @@
+{
+  "kind": "illustrative mathematical scenario",
+  "equation": "v = Vmax*S/(Km+S)",
+  "parameters": [
+    {
+      "curve": "A",
+      "Vmax": 1,
+      "Km": 1
+    },
+    {
+      "curve": "B",
+      "Vmax": 2,
+      "Km": 2
+    }
+  ],
+  "ranges": [
+    [
+      0,
+      0.15
+    ],
+    [
+      0,
+      12
+    ]
+  ],
+  "randomness": "none",
+  "output_sha256": {
+    "concentration-range-illustration.svg": "67d47d360bffa7f76d98be78b8e9ee63cd522736f1687612d76fade2b050fdda"
+  }
+}

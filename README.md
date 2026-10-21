@@ -6,6 +6,12 @@ How much can a smooth enzyme-kinetics curve really tell us about its parameters?
 
 The aim is to make model fitting inspectable. A residual is an observed rate minus its fitted value; uncertainty describes how strongly the data constrain the fitted parameters under stated assumptions. You can follow every estimate back to a pinned input, see the assumptions behind an interval and distinguish a fitted curve from evidence about a biological mechanism.
 
+Figure 1 shows why the measured range matters before looking at the archived data. Two illustrative curves have the same slope at zero but different limiting rates. A short rising segment can therefore make those limits difficult to distinguish.
+
+![Two illustrative saturating curves are close near zero but approach different limiting rates over a wider concentration range](docs/figures/concentration-range-illustration.svg)
+
+**Figure 1. Concentration range changes what a curve can reveal.** This is a mathematical illustration, not Puromycin data: curve A uses $`V_{\max}=K_m=1`$ and curve B uses $`V_{\max}=K_m=2`$ in arbitrary units. Both follow the equation in the [biology guide](docs/biology-and-concepts.md#what-the-michaelismenten-equation-says). The [figure builder](tools/build_documentation_figures.py) records these choices in a [manifest](docs/figures/figure-manifest.json).
+
 ## What it does
 
 - Fits positive parameters of the saturating Michaelis–Menten curve separately for the archived `treated` and `untreated` labels, using nine starting points for each fit.
@@ -52,6 +58,10 @@ python verify_kinetics.py
 
 ## Example results
 
+Table 1 summarizes the archived-data fits; Figure 2 shows the observations behind those summaries.
+
+**Table 1. Full-range fits to the archived labels.**
+
 | Archived label | Observations | Fitted maximum rate, counts/min/min | Fitted half-saturation, ppm | Approximate 95% profile interval, ppm |
 | --- | ---: | ---: | ---: | --- |
 | treated | 12 | 212.68 | 0.0641 | 0.0489–0.0830 |
@@ -62,6 +72,8 @@ The source’s `counts/min/min` means change in radioactive count rate, `(counts
 These are separate descriptive fits, not an estimate of a causal treatment effect. When only the low-concentration observations are retained, the fitted maximum rates become 174.50 and 126.75 counts/min/min. That sensitivity is a useful reason to inspect the measured range before interpreting the model's asymptote, its limiting rate at very high concentration.
 
 ![Observed rates, fitted curves and marked extrapolation](results/fitted_curves.png)
+
+**Figure 2. Archived observations and fitted curves.** Source: [included Puromycin data](data/README.md) and [saved parameter estimates](results/parameter_estimates.csv). Dotted extensions are predictions outside the measured concentration range, not additional observations. These fits describe the labels separately and do not establish a treatment mechanism.
 
 Across the 12 concentration-level refits, the largest absolute change in the apparent half-saturation parameter, Km, is 12.66% for the treated label and 27.36% for the untreated label. These are sensitivity summaries, not confidence limits. See the [audit report](examples/concentration-audit/report.md).
 
@@ -92,3 +104,5 @@ Definitions and interpretation: [glossary](docs/glossary.md), [assumptions](docs
 The [methods](docs/methods.md) describe equations, parameter bounds, output fields and failure cases. Tests cover known-parameter recovery, analytic derivatives, source integrity, profile calculations, invalid inputs and an end-to-end run. GitHub Actions runs those tests and reproduces all outputs. See [CONTRIBUTING.md](CONTRIBUTING.md) for changing the analysis responsibly.
 
 Original code and documentation use the [MIT license](LICENSE). The bundled R source files and converted dataset retain their separate [GPL-2.0-or-later terms](data/README.md).
+
+Rebuild Figure 1 with `python tools/build_documentation_figures.py`. It writes only `docs/figures/` and does not rerun or replace the archived-data analysis.
