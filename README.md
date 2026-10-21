@@ -1,18 +1,20 @@
 # Enzyme kinetics workbench
 
-How much can a smooth enzyme-kinetics curve really tell us about its parameters? This project fits a classic saturating model to the 23 archived observations in R's `Puromycin` dataset, then examines residuals, parameter uncertainty and the effect of removing the high-concentration observations. A separate mathematical exercise asks how the range of substrate concentrations changes local parameter information.
+How much can a smooth enzyme-kinetics curve really tell us about its parameters? Enzyme kinetics studies reaction rates; parameters are the constants defining a model’s curve. This project fits a classic saturating model to the 23 archived observations in R's `Puromycin` dataset, then examines residuals, parameter uncertainty and the effect of removing the high-concentration observations. A separate mathematical exercise asks how the range of substrate concentrations changes local parameter information.
 
 ## Why this project
 
-The aim is to make model fitting inspectable. You can follow every estimate back to a pinned input, see the assumptions behind an interval and distinguish a fitted curve from evidence about a biological mechanism.
+The aim is to make model fitting inspectable. A residual is an observed rate minus its fitted value; uncertainty describes how strongly the data constrain the fitted parameters under stated assumptions. You can follow every estimate back to a pinned input, see the assumptions behind an interval and distinguish a fitted curve from evidence about a biological mechanism.
 
 ## What it does
 
-- Fits positive Michaelis–Menten parameters separately for the archived `treated` and `untreated` labels, using nine starting points for each fit.
+- Fits positive parameters of the saturating Michaelis–Menten curve separately for the archived `treated` and `untreated` labels, using nine starting points for each fit.
 - Plots observed rates, fitted curves and residuals, and marks curve extensions beyond the observed concentration range.
-- Profiles the apparent half-saturation parameter, reoptimizing the maximum rate at each candidate value. The resulting intervals are conditional, asymptotic approximations.
-- Refits just the observations at or below 0.11 ppm to show how a narrower range changes the estimates and uncertainty.
+- Profiles the apparent half-saturation parameter, reoptimizing the maximum rate at each candidate value. The resulting intervals depend on the assumed curve and error model and use a large-sample (asymptotic) approximation.
+- Refits just the observations at or below 0.11 ppm (parts per million) to show how a narrower range changes the estimates and uncertainty.
 - Compares three explicitly hypothetical substrate grids using local information in log-parameter coordinates.
+
+Here, a substrate is a reacting molecule; half-saturation is the concentration at which the curve reaches half its limiting rate. Local information describes how predictions respond to small parameter changes. Log-parameter coordinates use logarithms of the positive constants.
 
 The separate concentration audit leaves out each complete concentration level in turn, reports changes in apparent parameters, and labels held-out predictions as interpolation or extrapolation relative to the retained range. It preserves the original analysis.
 
@@ -34,7 +36,7 @@ On Windows, activate the environment with `.venv\Scripts\activate`. To keep a ne
 python kinetics.py --out /tmp/enzyme-kinetics-results
 ```
 
-Every run verifies the SHA-256 hashes of the bundled source and data, reproduces the CSV conversion from the original R literals, and stops if the inputs do not match. The command writes five CSV tables, a JSON summary, a Markdown report and four PNG figures. It replaces files with those names in the chosen output directory. [The example report](results/report.md) is ready to read without running Python.
+Every run verifies the SHA-256 hashes (fingerprints of file bytes) of the bundled source and data, reproduces the CSV conversion from the original R literals, and stops if the inputs do not match. The command writes five CSV tables, a JSON summary, a Markdown report and four PNG figures. It replaces files with those names in the chosen output directory. [The example report](results/report.md) is ready to read without running Python.
 
 Run the new sensitivity audit separately:
 
@@ -55,11 +57,13 @@ python verify_kinetics.py
 | treated | 12 | 212.68 | 0.0641 | 0.0489–0.0830 |
 | untreated | 11 | 160.28 | 0.0477 | 0.0334–0.0664 |
 
-These are separate descriptive fits, not an estimate of a causal treatment effect. When only the low-concentration observations are retained, the fitted maximum rates become 174.50 and 126.75 counts/min/min. That sensitivity is a useful reason to inspect the measured range before interpreting the model's asymptote.
+The source’s `counts/min/min` means change in radioactive count rate, `(counts/min)`, per minute of reaction time. It is not a turnover rate per enzyme.
+
+These are separate descriptive fits, not an estimate of a causal treatment effect. When only the low-concentration observations are retained, the fitted maximum rates become 174.50 and 126.75 counts/min/min. That sensitivity is a useful reason to inspect the measured range before interpreting the model's asymptote, its limiting rate at very high concentration.
 
 ![Observed rates, fitted curves and marked extrapolation](results/fitted_curves.png)
 
-Across the 12 concentration-level refits, the largest absolute change in apparent Km is 12.66% for the treated label and 27.36% for the untreated label. These are sensitivity summaries, not confidence limits. See the [audit report](examples/concentration-audit/report.md).
+Across the 12 concentration-level refits, the largest absolute change in the apparent half-saturation parameter, Km, is 12.66% for the treated label and 27.36% for the untreated label. These are sensitivity summaries, not confidence limits. See the [audit report](examples/concentration-audit/report.md).
 
 All 16 saved fits also pass the [independent numerical check](examples/numerical-verification/verification.json), using relative tolerance `1e-5` and absolute tolerance `1e-7` for parameters and residual sums of squares. This compares the same objective using different numerical code.
 
@@ -67,7 +71,7 @@ All 16 saved fits also pass the [independent numerical check](examples/numerical
 
 The [official R documentation](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html) describes one treated and one untreated experiment. It supplies neither experimental-unit identifiers nor enough assay metadata to reconstruct the work. Repeated rows at a concentration are therefore not assumed to be independent biological replicates. Concentrations are in ppm; the fitted half-saturation parameter is not a molar binding affinity. The thesis title cited by R mentions galactosyltransferase in Golgi membranes, but that attribution does not establish a species, detailed protocol or inhibition mechanism for this reduced table.
 
-The model assumes a simple saturating relationship. A good fit does not verify its mechanism, establish enzyme turnover, or demonstrate that experimental saturation was reached. The uncertainty calculations additionally assume independent, constant-variance Gaussian errors; those assumptions and small-sample coverage are not established by this archive. The hypothetical information comparison holds the model and noise fixed and is not a validated experimental design recommendation.
+The model assumes a simple saturating relationship. A good fit does not verify its mechanism, establish enzyme turnover, or demonstrate that experimental saturation was reached. The uncertainty calculations additionally assume independent, constant-variance normally distributed (Gaussian) errors; those assumptions and small-sample coverage are not established by this archive. The hypothetical information comparison holds the model and noise fixed and is not a validated experimental design recommendation.
 
 ## Documentation
 
@@ -80,6 +84,8 @@ The model assumes a simple saturating relationship. A good fit does not verify i
 | [Data provenance](data/README.md) | Source revision, conversion, hashes and terms |
 | [Practical use](docs/practical-use.md) | Worked audit and acceptance checks |
 | [Literature review](docs/literature-review.md) | Search, appraisal and implementation decisions |
+
+Definitions and interpretation: [glossary](docs/glossary.md), [assumptions](docs/assumptions.md), [reference audit](docs/reference-audit.json) and [dated review](docs/review-2026-10-20.md).
 
 ## Development and reuse
 

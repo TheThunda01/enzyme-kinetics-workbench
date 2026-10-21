@@ -1,23 +1,39 @@
-# References, source checks and related tools
+# References and source roles
 
-Sources below were checked on 2026-10-20. The biological discussion deliberately stays within what the retained data and these sources support. A citation to a method does not validate that method's assumptions for this archive.
+References are cited by author and year. The [reference audit](reference-audit.json) records the checked metadata, source role and exact access limits for every item below. Checks were completed on 21 October 2026 UTC as part of the review dated 20 October in the user’s local date. Earlier discovery and access records remain in the [literature review](literature-review.md).
 
-1. **R Core Team. `Puromycin`: Reaction Velocity of an Enzymatic Reaction.** [Official R manual](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html), plus the [pinned source documentation](https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/man/Puromycin.Rd) and [data source](https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/data/Puromycin.R). This establishes the archived variables, units, one treated and one untreated experiment, historical attribution and example equation. The web manual can change; the included files and their hashes are the reproducibility record.
+## Data and historical attribution
 
-2. **Briggs GE, Haldane JBS (1925). A Note on the Kinetics of Enzyme Action.** *Biochemical Journal* 19(2):338–339. [doi:10.1042/bj0190338](https://doi.org/10.1042/bj0190338). Primary theoretical source for the steady-state enzyme-kinetics treatment. It supports the distinction between a kinetic half-saturation parameter and a general binding constant, not a mechanistic interpretation of this particular archive.
+- **R Core Team. (2026). Puromycin: Reaction Velocity of an Enzymatic Reaction.** [Official source](https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/man/Puromycin.Rd). Version: `same pinned commit; current R-devel manual also inspected`. Archived units, initial-rate description, one experiment per label, historical attribution and the separate-fit/partial-linearity examples. The reduced archive does not resolve the cells/enzyme wording or missing assay details.
 
-3. **Johnson KA, Goody RS (2011). The Original Michaelis Constant: Translation of the 1913 Michaelis–Menten Paper.** *Biochemistry* 50(39):8264–8269. [doi:10.1021/bi201284u](https://doi.org/10.1021/bi201284u); [open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3381512/). Translation of the historical primary paper with analysis of its original assumptions. The original experiments are not the `Puromycin` experiment.
+- **R Core Team. (2026). Puromycin literal dataset.** [Official source](https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/data/Puromycin.R). Version: `commit 3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2`. 23 values, factor labels and source ordering; deterministic conversion into the project CSV.
 
-4. **Raue A, Kreutz C, Maiwald T, et al. (2009). Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood.** *Bioinformatics* 25(15):1923–1929. [doi:10.1093/bioinformatics/btp358](https://doi.org/10.1093/bioinformatics/btp358). Primary methodological work underlying the general profiling approach and distinction between structural and practical identifiability. Our two-parameter static model and unknown-variance likelihood calculation are implemented independently; this repository does not reproduce the paper's biological models.
+- **Bates DM, Watts DG. (1988). Nonlinear Regression Analysis and Its Applications. Wiley, Appendix A1.3.** [Source](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html). R attributes the dataset to Appendix A1.3 of this book. Metadata/attribution-level check.
 
-5. **Wanika L, Egan JR, Swaminathan N, et al. (2024). Structural and practical identifiability analysis in bioengineering: a beginner's guide.** *Journal of Biological Engineering* 18:20. [doi:10.1186/s13036-024-00410-x](https://doi.org/10.1186/s13036-024-00410-x). An open research article applying identifiability methods to several biological models. Its discussion supports examining parameter constraints rather than treating visual agreement as unique parameter identification. We do not import its data, code, specific threshold conventions or experimental conclusions.
+- **Treloar MA. (1974). Effects of Puromycin on Galactosyltransferase in Golgi Membranes. Master’s thesis, University of Toronto.** [Source](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html). R attributes the observations to this University of Toronto master’s thesis. Metadata/attribution-level check.
 
-The R manual credits **Bates DM and Watts DG (1988), *Nonlinear Regression Analysis and Its Applications*, Appendix A1.3**, and **Treloar MA (1974), *Effects of Puromycin on Galactosyltransferase in Golgi Membranes*, University of Toronto master's thesis**. These are upstream attributions: the original thesis and book were not independently reanalyzed here, so we do not infer missing assay details from their titles.
+## Kinetics and identifiability
 
-## Software and ideas from existing repositories
+- **Briggs GE, Haldane JBS. (1925). A Note on the Kinetics of Enzyme Action. Biochemical Journal, 19(2), 338–339.** [DOI: 10.1042/bj0190338](https://doi.org/10.1042/bj0190338); [PMID 16743508](https://pubmed.ncbi.nlm.nih.gov/16743508/). Bibliographic attribution of the historical theoretical treatment. Metadata/attribution-level check.
 
-- [R source mirror](https://github.com/wch/r-source/tree/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets): the two included upstream files are pinned at commit `3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2`. The choice of separate Michaelis–Menten fits follows the documented R example. The data were converted; R fitting code was not copied into Python. The unmodified files and converted data retain GPL-2.0-or-later terms.
-- [SciPy](https://github.com/scipy/scipy/tree/v1.17.0) is an installed dependency. The implementation calls `least_squares`, `brentq` and the chi-square quantile function, using [the official versioned documentation](https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.least_squares.html). SciPy provides numerical routines, not biological validation. Its source has not been vendored into this repository.
-- NumPy 2.3.5, pandas 2.2.3 and Matplotlib 3.10.8 provide array operations, tables and figures. Exact installed versions are written into every `summary.json`; dependency licenses remain their own.
+- **Johnson KA, Goody RS. (2011). The Original Michaelis Constant: Translation of the 1913 Michaelis–Menten Paper. Biochemistry, 50(39), 8264–8269.** [DOI: 10.1021/bi201284u](https://doi.org/10.1021/bi201284u); [PMID 21888353](https://pubmed.ncbi.nlm.nih.gov/21888353/). Historical assumptions and distinction between a kinetic Michaelis constant and binding affinity. Publisher and PMC headers identify Johnson and Goody as the article authors; the differing PubMed list is documented in the audit.
 
-This project adapts published concepts and uses established software through its APIs. It claims neither authorship of the Michaelis–Menten model nor reuse of an uninspected external analysis pipeline.
+- **Raue A et al. (2009). Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood. Bioinformatics, 25(15), 1923–1929.** [DOI: 10.1093/bioinformatics/btp358](https://doi.org/10.1093/bioinformatics/btp358); [PMID 19505944](https://pubmed.ncbi.nlm.nih.gov/19505944/). Profile-likelihood reasoning and the distinction between structural and practical identifiability. Abstract-level appraisal.
+
+- **Wanika L et al. (2024). Structural and practical identifiability analysis in bioengineering: a beginner’s guide. Journal of Biological Engineering, 18(1), 20.** [DOI: 10.1186/s13036-024-00410-x](https://doi.org/10.1186/s13036-024-00410-x); [PMID 38438947](https://pubmed.ncbi.nlm.nih.gov/38438947/). Definitions and illustrative use of structural/practical identifiability and profile analysis.
+
+- **McGuinness AN et al. (2024). Identifiability of enzyme kinetic parameters in substrate competition: a case study of CD39/NTPDase1. Purinergic Signalling, 20(3), 257–271.** [DOI: 10.1007/s11302-023-09942-1](https://doi.org/10.1007/s11302-023-09942-1); [PMID 37165287](https://pubmed.ncbi.nlm.nih.gov/37165287/). A primary example where enzyme-model parameter interactions complicate interpretation. Abstract-level appraisal. Issue year 2024; first published online in 2023.
+
+## Numerical software
+
+- **SciPy developers. (2026). SciPy 1.17.0: least_squares.** [Official source](https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.least_squares.html). Version: `1.17.0`. Bounded trust-region reflective nonlinear least squares, ordinary squared-error loss and stopping controls.
+
+- **SciPy developers. (2026). SciPy 1.17.0: brentq.** [Official source](https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.brentq.html). Version: `1.17.0`. Root search on a continuous bracket with a sign change, used for profile crossings.
+
+- **SciPy developers. (2026). SciPy 1.17.0: chi2.** [Official source](https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.stats.chi2.html). Version: `1.17.0`. The percent-point function returns the declared chi-square quantile.
+
+- **SciPy developers. (2026). SciPy 1.17.0: minimize_scalar.** [Official source](https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.minimize_scalar.html). Version: `1.17.0`. Bounded local scalar minimization for the independent numerical route.
+
+## Reuse and interpretation
+
+The input files retain their upstream license and attribution. A software citation documents an interface; a methodological citation documents an idea. Neither demonstrates that the assumptions fit these data or that the project has been experimentally validated. See [assumptions](assumptions.md) for that distinction.

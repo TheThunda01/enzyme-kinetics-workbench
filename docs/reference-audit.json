@@ -1,0 +1,301 @@
+{
+  "review_date": "2026-10-20",
+  "scope": "Scientific and editorial recheck of authored documentation and its substantive sources. Verification performed 2026-10-21 UTC during the review dated 2026-10-20 in the user’s local date.",
+  "limits": [
+    "Targeted source verification, not a new comprehensive systematic literature review. Historical searches and results are preserved.",
+    "full_text means the relevant accessible body was inspected; limitations state partial extraction coverage where applicable.",
+    "Metadata-only entries support provenance or attribution only. Published findings do not validate this project’s own results."
+  ],
+  "references": [
+    {
+      "id": "r_puromycin_data",
+      "source_type": "official_data_or_software",
+      "title": "Puromycin literal dataset",
+      "authors": "R Core Team",
+      "year": 2026,
+      "url": "https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/data/Puromycin.R",
+      "version": "commit 3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2",
+      "checked_on": "2026-10-21",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "23 values, factor labels and source ordering; deterministic conversion into the project CSV."
+      ],
+      "limitations": [
+        "A mirror of R source, not the original experimental records. Repeated rows are not documented independent biological replicates."
+      ],
+      "corrections": [],
+      "alternate_urls": []
+    },
+    {
+      "id": "r_puromycin_docs",
+      "source_type": "official_data_or_software",
+      "title": "Puromycin: Reaction Velocity of an Enzymatic Reaction",
+      "authors": "R Core Team",
+      "year": 2026,
+      "url": "https://github.com/wch/r-source/blob/3dc01cf932ce6b21b1fa05883bbecca4bd6fefc2/src/library/datasets/man/Puromycin.Rd",
+      "version": "same pinned commit; current R-devel manual also inspected",
+      "checked_on": "2026-10-21",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Archived units, initial-rate description, one experiment per label, historical attribution and the separate-fit/partial-linearity examples."
+      ],
+      "limitations": [
+        "Description refers to cells while details refer to treated enzyme. The reduced archive cannot resolve species, substrate identity, full protocol, calibration or causal design."
+      ],
+      "corrections": [],
+      "alternate_urls": [
+        "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html"
+      ]
+    },
+    {
+      "id": "briggs1925",
+      "source_type": "peer_reviewed_article",
+      "title": "A Note on the Kinetics of Enzyme Action",
+      "authors": "Briggs GE, Haldane JBS",
+      "year": 1925,
+      "url": "https://doi.org/10.1042/bj0190338",
+      "doi": "10.1042/bj0190338",
+      "pmid": "16743508",
+      "checked_on": "2026-10-21",
+      "access_level": "metadata_only",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Bibliographic attribution of the historical theoretical treatment."
+      ],
+      "limitations": [
+        "PubMed record has no abstract. The current full-text request returned an internal error; original derivation was not inspected in this pass. The detailed Km explanation is independently supported by Johnson and Goody (2011)."
+      ],
+      "corrections": [],
+      "citation": "Briggs GE, Haldane JBS. (1925). A Note on the Kinetics of Enzyme Action. Biochemical Journal, 19(2), 338–339.",
+      "alternate_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/16743508/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC1259181/"
+      ]
+    },
+    {
+      "id": "johnson2011",
+      "source_type": "peer_reviewed_article",
+      "title": "The Original Michaelis Constant: Translation of the 1913 Michaelis–Menten Paper",
+      "authors": "Johnson KA, Goody RS",
+      "year": 2011,
+      "url": "https://doi.org/10.1021/bi201284u",
+      "doi": "10.1021/bi201284u",
+      "pmid": "21888353",
+      "checked_on": "2026-10-21",
+      "access_level": "full_text",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Historical assumptions and distinction between a kinetic Michaelis constant and binding affinity."
+      ],
+      "limitations": [
+        "The translated 1913 experiment is not the Puromycin archive. Full text read in two chunks; redistribution rights are not inferred from access. PubMed includes Michaelis and Menten in its author list, whereas the primary publisher and PMC article header identify Johnson and Goody as article authors."
+      ],
+      "corrections": [
+        "Preserved the two article authors verified against primary publisher and PMC headers; documented the PubMed author-list discrepancy."
+      ],
+      "citation": "Johnson KA, Goody RS. (2011). The Original Michaelis Constant: Translation of the 1913 Michaelis–Menten Paper. Biochemistry, 50(39), 8264–8269.",
+      "alternate_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/21888353/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3381512/"
+      ]
+    },
+    {
+      "id": "raue2009",
+      "source_type": "peer_reviewed_article",
+      "title": "Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood",
+      "authors": "Raue A et al.",
+      "year": 2009,
+      "url": "https://doi.org/10.1093/bioinformatics/btp358",
+      "doi": "10.1093/bioinformatics/btp358",
+      "pmid": "19505944",
+      "checked_on": "2026-10-21",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Profile-likelihood reasoning and the distinction between structural and practical identifiability."
+      ],
+      "limitations": [
+        "Abstract and bibliographic record inspected. This is a different model setting; its citation does not justify the archive’s independent Gaussian errors or the exact unknown-variance implementation."
+      ],
+      "corrections": [],
+      "citation": "Raue A et al.. (2009). Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood. Bioinformatics, 25(15), 1923–1929.",
+      "alternate_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/19505944/"
+      ]
+    },
+    {
+      "id": "wanika2024",
+      "source_type": "peer_reviewed_article",
+      "title": "Structural and practical identifiability analysis in bioengineering: a beginner’s guide",
+      "authors": "Wanika L et al.",
+      "year": 2024,
+      "url": "https://doi.org/10.1186/s13036-024-00410-x",
+      "doi": "10.1186/s13036-024-00410-x",
+      "pmid": "38438947",
+      "checked_on": "2026-10-21",
+      "access_level": "full_text",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Definitions and illustrative use of structural/practical identifiability and profile analysis."
+      ],
+      "limitations": [
+        "Abstract and first 16,000 of 98,608 extracted full-text characters inspected, covering introductory/method context; not a complete article appraisal. Its dynamic systems are not this dataset."
+      ],
+      "corrections": [],
+      "citation": "Wanika L et al.. (2024). Structural and practical identifiability analysis in bioengineering: a beginner’s guide. Journal of Biological Engineering, 18(1), 20.",
+      "alternate_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/38438947/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11465550/"
+      ]
+    },
+    {
+      "id": "mcguinness2024",
+      "source_type": "peer_reviewed_article",
+      "title": "Identifiability of enzyme kinetic parameters in substrate competition: a case study of CD39/NTPDase1",
+      "authors": "McGuinness AN et al.",
+      "year": 2024,
+      "url": "https://doi.org/10.1007/s11302-023-09942-1",
+      "doi": "10.1007/s11302-023-09942-1",
+      "pmid": "37165287",
+      "checked_on": "2026-10-21",
+      "access_level": "abstract",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "A primary example where enzyme-model parameter interactions complicate interpretation."
+      ],
+      "limitations": [
+        "2024 is the issue year; the article appeared online in 2023. Abstract-level appraisal only. Its substrate-competition mechanism is not the two-parameter Puromycin curve."
+      ],
+      "corrections": [
+        "Added the complete bibliographic entry for a source previously cited only in the literature review; distinguished issue and online years."
+      ],
+      "citation": "McGuinness AN et al.. (2024). Identifiability of enzyme kinetic parameters in substrate competition: a case study of CD39/NTPDase1. Purinergic Signalling, 20(3), 257–271.",
+      "alternate_urls": [
+        "https://pubmed.ncbi.nlm.nih.gov/37165287/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11189375/"
+      ]
+    },
+    {
+      "id": "bates1988",
+      "source_type": "book_upstream_attribution",
+      "title": "Nonlinear Regression Analysis and Its Applications",
+      "authors": "Bates DM, Watts DG",
+      "year": 1988,
+      "url": "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html",
+      "checked_on": "2026-10-21",
+      "access_level": "metadata_only",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "R attributes the dataset to Appendix A1.3 of this book."
+      ],
+      "limitations": [
+        "Attribution checked indirectly in official R documentation; the book and its experimental account were not independently read. The URL is the attribution source, not the book."
+      ],
+      "corrections": [],
+      "publisher": "Wiley",
+      "cited_section": "Appendix A1.3"
+    },
+    {
+      "id": "treloar1974",
+      "source_type": "thesis_upstream_attribution",
+      "title": "Effects of Puromycin on Galactosyltransferase in Golgi Membranes",
+      "authors": "Treloar MA",
+      "year": 1974,
+      "url": "https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html",
+      "checked_on": "2026-10-21",
+      "access_level": "metadata_only",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "R attributes the observations to this University of Toronto master’s thesis."
+      ],
+      "limitations": [
+        "Attribution checked indirectly in official R documentation; thesis text was not inspected. Title alone cannot establish missing assay details. The URL is the attribution source, not the thesis."
+      ],
+      "corrections": [],
+      "institution": "University of Toronto",
+      "publication_type": "Master’s thesis"
+    },
+    {
+      "id": "scipy_least_squares",
+      "source_type": "official_data_or_software",
+      "title": "SciPy 1.17.0: least_squares",
+      "authors": "SciPy developers",
+      "year": 2026,
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.least_squares.html",
+      "version": "1.17.0",
+      "checked_on": "2026-10-21",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Bounded trust-region reflective nonlinear least squares, ordinary squared-error loss and stopping controls."
+      ],
+      "limitations": [
+        "Official API documentation, not a biological validation or a statistical justification for this dataset."
+      ],
+      "corrections": [],
+      "alternate_urls": []
+    },
+    {
+      "id": "scipy_brentq",
+      "source_type": "official_data_or_software",
+      "title": "SciPy 1.17.0: brentq",
+      "authors": "SciPy developers",
+      "year": 2026,
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.brentq.html",
+      "version": "1.17.0",
+      "checked_on": "2026-10-21",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Root search on a continuous bracket with a sign change, used for profile crossings."
+      ],
+      "limitations": [
+        "Official API documentation, not a biological validation or a statistical justification for this dataset."
+      ],
+      "corrections": [],
+      "alternate_urls": []
+    },
+    {
+      "id": "scipy_chi2",
+      "source_type": "official_data_or_software",
+      "title": "SciPy 1.17.0: chi2",
+      "authors": "SciPy developers",
+      "year": 2026,
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.stats.chi2.html",
+      "version": "1.17.0",
+      "checked_on": "2026-10-21",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "The percent-point function returns the declared chi-square quantile."
+      ],
+      "limitations": [
+        "Documentation establishes the implemented distribution/quantile, not validity of an asymptotic likelihood-ratio approximation for these observations."
+      ],
+      "corrections": [],
+      "alternate_urls": []
+    },
+    {
+      "id": "scipy_minimize_scalar",
+      "source_type": "official_data_or_software",
+      "title": "SciPy 1.17.0: minimize_scalar",
+      "authors": "SciPy developers",
+      "year": 2026,
+      "url": "https://docs.scipy.org/doc/scipy-1.17.0/reference/generated/scipy.optimize.minimize_scalar.html",
+      "version": "1.17.0",
+      "checked_on": "2026-10-21",
+      "access_level": "official_documentation",
+      "metadata_status": "verified",
+      "supported_claims": [
+        "Bounded local scalar minimization for the independent numerical route."
+      ],
+      "limitations": [
+        "A local routine plus finite preliminary grid and endpoints is not a proof of a global optimum."
+      ],
+      "corrections": [],
+      "alternate_urls": []
+    }
+  ]
+}
