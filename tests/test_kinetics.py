@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 from scipy.stats import chi2
@@ -104,13 +105,17 @@ class DataAndProfileTests(unittest.TestCase):
     def test_full_pipeline_generates_complete_finite_outputs(self):
         with tempfile.TemporaryDirectory() as tmp:
             out = Path(tmp)
-            summary = k.run(out=out)
+            # Emulate a legacy Windows locale while preserving explicit encodings.
+            with patch('io.text_encoding', side_effect=lambda encoding, stacklevel=2: encoding or 'cp1252'):
+                summary = k.run(out=out)
             self.assertEqual(summary['fits']['treated']['full_range']['n'], 12)
             self.assertEqual(summary['fits']['untreated']['full_range']['n'], 11)
             self.assertEqual(json.loads((out / 'summary.json').read_text()), summary)
             for name in ['fitted_curves.png','residual_diagnostics.png','km_profiles.png','conditional_information.png']:
                 self.assertGreater((out / name).stat().st_size, 1000)
-            self.assertIn('asymptotic', (out / 'report.md').read_text())
+            report = (out / 'report.md').read_text(encoding='utf-8')
+            self.assertIn('asymptotic', report)
+            self.assertIn('0.0489–0.0830', report)
 
 
 if __name__ == '__main__':

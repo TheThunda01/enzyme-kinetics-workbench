@@ -33,27 +33,23 @@ python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m unittest discover -s tests -v
-python kinetics.py
+python kinetics.py --out .reproduction
 ```
 
-On Windows, activate the environment with `.venv\Scripts\activate`. To keep a new run separate from the checked-in example:
+On Windows, activate the environment with `.venv\Scripts\activate`. The command above writes to `.reproduction/`, keeping the checked-in example intact. Choose another directory with `--out PATH`; omitting `--out` replaces files in `results/`.
 
-```bash
-python kinetics.py --out /tmp/enzyme-kinetics-results
-```
-
-Every run verifies the SHA-256 hashes (fingerprints of file bytes) of the bundled source and data, reproduces the CSV conversion from the original R literals, and stops if the inputs do not match. The command writes five CSV tables, a JSON summary, a Markdown report and four PNG figures. It replaces files with those names in the chosen output directory. [The example report](results/report.md) is ready to read without running Python.
+Every run verifies the SHA-256 hashes (fingerprints of file bytes) of the bundled source and data, reproduces the CSV conversion from the original R literals, and stops if the inputs do not match. The command writes five CSV tables, a JSON summary, a UTF-8 Markdown report and four PNG figures. It replaces files with those names in the chosen output directory. [The example report](results/report.md) is ready to read without running Python.
 
 Run the new sensitivity audit separately:
 
 ```bash
-python audit_kinetics.py
+python audit_kinetics.py --out .reproduction-audit
 ```
 
-The independent numerical check compares all 16 saved full-range, low-range and omitted-level fits using an analytic maximum-rate solution and a one-dimensional half-saturation search:
+The independent numerical check compares all 16 newly saved full-range, low-range and omitted-level fits using an analytic maximum-rate solution and a one-dimensional half-saturation search:
 
 ```bash
-python verify_kinetics.py
+python verify_kinetics.py --results-dir .reproduction --audit-dir .reproduction-audit --out .reproduction-verification
 ```
 
 ## Example results
