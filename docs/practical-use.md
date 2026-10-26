@@ -2,9 +2,9 @@
 
 ## Where this fits
 
-This workbench is useful when learning how to review a nonlinear fit before attaching biological meaning to its parameters. Its new concentration audit asks a specific question: how much does each measured substrate level influence the fitted maximum rate and half-saturation parameter? It works on the included historical dataset, with the same model and fitting settings as the main analysis.
+Use this workbench to review a nonlinear fit before interpreting its parameters biologically. The concentration audit asks how much each measured substrate level influences the fitted maximum rate and half-saturation parameter. It uses the included historical dataset and the main analysis's model and fitting settings.
 
-The audit removes all rows at a concentration together. This avoids describing two measurements at the same substrate level as two independent tests of that level. It does not establish that either the remaining or omitted rows are independent biological replicates. The original metadata describe one run per label; the underlying experimental structure remains a limitation. See [provenance](../data/README.md).
+The audit removes all rows at a concentration together, so two measurements at the same level do not become two independent tests of that level. Neither the retained nor omitted rows establish independent biological replication. The original metadata describe one run per label, leaving the experimental structure unresolved. See [provenance](../data/README.md).
 
 ## Input and output contract
 
@@ -37,7 +37,7 @@ These are operator checks. The software verifies the data snapshot, grouping and
 
 ## Known limits
 
-This is a deterministic sensitivity analysis within two small archived runs. Omitted-row errors are not an independent validation estimate. There is no automatic outlier rejection, correction for unknown within-run dependence, uncertainty calibration, or causal treatment test. The original curve and recorded baseline results are preserved. Alternative weighting or nonlinear mechanisms could change the conclusions and need their own evidence.
+This deterministic analysis measures sensitivity within two small archived runs. Errors on omitted rows do not estimate independent validation performance. The analysis preserves the original curve and baseline results; it does not reject outliers automatically, correct unknown within-run dependence, calibrate uncertainty, or test causal treatment effects. Alternative weighting or nonlinear mechanisms could change the conclusions and need their own evidence.
 
 ## Next improvements
 

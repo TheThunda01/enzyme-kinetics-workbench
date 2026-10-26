@@ -4,7 +4,9 @@
 
 An enzyme is a biological catalyst: it changes the rate of a reaction without being consumed in the overall transformation. The substrate is a reacting molecule. Enzyme kinetics connects reaction rate to quantities such as substrate availability, using a model that simplifies a much richer molecular process.
 
-Here the observations come from R's `Puromycin` archive. Its concentration column is in parts per million, and its rate column is in counts/min/min: change in count rate `(counts/min)` per minute of reaction time. The documentation describes calculating initial reaction rates from measurements of radioactive product. These are instrument-linked rates, not directly a count of molecules converted per enzyme per second. Without calibration and enzyme-amount information, this project cannot calculate a turnover number. [R Core Team (pinned 2026 snapshot)](references.md#data-and-historical-attribution)
+The observations come from R's `Puromycin` archive. Its concentration column is in parts per million, and its rate column is in counts/min/min: change in count rate `(counts/min)` per minute of reaction time. The documentation describes calculating initial reaction rates from measurements of radioactive product. [R Core Team (pinned 2026 snapshot)](references.md#data-and-historical-attribution)
+
+These rates describe an instrument signal, not the number of molecules converted per enzyme per second. Calculating a turnover number would require calibration and enzyme-amount information that this archive lacks.
 
 R attributes the dataset to Treloar's thesis, whose title mentions galactosyltransferase in Golgi membranes. That is useful historical context, but the reduced table does not identify a species, substrate identity, enzyme concentration or complete assay conditions. The documentation refers to cells in its description and to treated versus untreated enzyme in its details. We preserve the labels without resolving that ambiguity through guesswork. It describes one experiment for each label; rows repeated at a concentration do not establish independent biological replication. [R Core Team (pinned 2026 snapshot)](references.md#data-and-historical-attribution)
 
@@ -50,9 +52,11 @@ The full archived range is 0.02–1.1 ppm. The workbench deliberately repeats th
 
 Structural identifiability asks whether perfect observations could distinguish parameters under a specified model. Practical identifiability asks how much the actual observations constrain them. The distinction matters because noise and a limited range can leave many plausible parameter combinations even when a model is identifiable in principle. [Raue et al. (2009) and Wanika et al. (2024)](references.md#kinetics-and-identifiability)
 
-This project explores practical uncertainty with a profile. For each candidate $`K_m`$, it finds the best accompanying $`V_{\max}`$ and measures how much worse the fit becomes. A shallow profile means that moving the parameter changes the best achievable fit only slightly. The displayed approximate intervals use a Gaussian, independent, constant-variance error model and an asymptotic likelihood-ratio cutoff. There are only 12 or 11 observations in the full groups, and their independence is not documented. The intervals are therefore conditional illustrations, not validated small-sample coverage statements.
+This project explores practical uncertainty with a profile. For each candidate $`K_m`$, it finds the best accompanying $`V_{\max}`$ and measures how much worse the fit becomes. A shallow profile means that changing the parameter barely changes the best achievable fit.
 
-Residuals show where observations lie above or below the fitted curve. A systematic pattern can suggest model mismatch; different scatter at different concentrations can challenge constant variance. A quiet-looking plot cannot prove either assumption with so few points. The script does not automatically delete observations or treat outliers as mistakes.
+The approximate intervals depend on a Gaussian, independent, constant-variance error model and an asymptotic likelihood-ratio cutoff. The full groups contain only 12 or 11 observations, and their independence is undocumented. The intervals therefore illustrate uncertainty under those assumptions; their small-sample coverage has not been validated.
+
+Residuals help assess the curve and error model. A systematic pattern can suggest model mismatch; changing scatter across concentrations can challenge constant variance. With so few points, the absence of a visible pattern cannot establish either assumption. The script does not automatically delete observations or treat outliers as mistakes.
 
 ## Information, design and responsible interpretation
 

@@ -1,12 +1,14 @@
 # Enzyme kinetics workbench
 
-How much can a smooth enzyme-kinetics curve really tell us about its parameters? Enzyme kinetics studies reaction rates; parameters are the constants defining a model’s curve. This project fits a classic saturating model to the 23 archived observations in R's `Puromycin` dataset, then examines residuals, parameter uncertainty and the effect of removing the high-concentration observations. A separate mathematical exercise asks how the range of substrate concentrations changes local parameter information.
+How much can an enzyme-kinetics curve tell us about its parameters?
+
+This project fits a classic saturating model to the 23 archived observations in R's `Puromycin` dataset. It examines residuals, parameter uncertainty and the effect of removing high-concentration observations. Enzyme kinetics studies reaction rates; parameters are the constants defining a model’s curve. A separate mathematical exercise examines how substrate concentration range affects local parameter information.
 
 ## Why this project
 
-The aim is to make model fitting inspectable. A residual is an observed rate minus its fitted value; uncertainty describes how strongly the data constrain the fitted parameters under stated assumptions. You can follow every estimate back to a pinned input, see the assumptions behind an interval and distinguish a fitted curve from evidence about a biological mechanism.
+You can trace every estimate to a pinned input and inspect the assumptions behind each interval. Residuals show observed rates minus fitted values; uncertainty describes how strongly the data constrain the parameters under stated assumptions. Together, these checks help distinguish a fitted curve from evidence about a biological mechanism.
 
-Figure 1 shows why the measured range matters before looking at the archived data. Two illustrative curves have the same slope at zero but different limiting rates. A short rising segment can therefore make those limits difficult to distinguish.
+Figure 1 illustrates why the measured range matters. Two curves have the same slope at zero but different limiting rates. Observing only a short rising segment can make those limits difficult to distinguish.
 
 ![Two illustrative saturating curves are close near zero but approach different limiting rates over a wider concentration range](docs/figures/concentration-range-illustration.svg)
 
@@ -38,9 +40,11 @@ python kinetics.py --out .reproduction
 
 On Windows, activate the environment with `.venv\Scripts\activate`. The command above writes to `.reproduction/`, keeping the checked-in example intact. Choose another directory with `--out PATH`; omitting `--out` replaces files in `results/`.
 
-Every run verifies the SHA-256 hashes (fingerprints of file bytes) of the bundled source and data, reproduces the CSV conversion from the original R literals, and stops if the inputs do not match. The command writes five CSV tables, a JSON summary, a UTF-8 Markdown report and four PNG figures. It replaces files with those names in the chosen output directory. [The example report](results/report.md) is ready to read without running Python.
+Every run verifies the SHA-256 hashes (fingerprints of file bytes) of the bundled source and data, reproduces the CSV conversion from the original R literals, and stops if the inputs do not match.
 
-Run the new sensitivity audit separately:
+The command writes five CSV tables, a JSON summary, a UTF-8 Markdown report and four PNG figures. It replaces files with those names in the chosen output directory. You can read [the example report](results/report.md) without running Python.
+
+Run the sensitivity audit separately:
 
 ```bash
 python audit_kinetics.py --out .reproduction-audit
@@ -65,7 +69,7 @@ Table 1 summarizes the archived-data fits; Figure 2 shows the observations behin
 
 The source’s `counts/min/min` means change in radioactive count rate, `(counts/min)`, per minute of reaction time. It is not a turnover rate per enzyme.
 
-These are separate descriptive fits, not an estimate of a causal treatment effect. When only the low-concentration observations are retained, the fitted maximum rates become 174.50 and 126.75 counts/min/min. That sensitivity is a useful reason to inspect the measured range before interpreting the model's asymptote, its limiting rate at very high concentration.
+The fitted maximum rates depend on the measured range: retaining only the low-concentration observations gives 174.50 and 126.75 counts/min/min. Inspect that sensitivity before interpreting the model's asymptote, its limiting rate at very high concentration. These are separate descriptive fits, not an estimate of a causal treatment effect.
 
 ![Observed rates, fitted curves and marked extrapolation](results/fitted_curves.png)
 
@@ -77,9 +81,11 @@ All 16 saved fits also pass the [independent numerical check](examples/numerical
 
 ## Practical use and limitations
 
-The [official R documentation](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html) describes one treated and one untreated experiment. It supplies neither experimental-unit identifiers nor enough assay metadata to reconstruct the work. Repeated rows at a concentration are therefore not assumed to be independent biological replicates. Concentrations are in ppm; the fitted half-saturation parameter is not a molar binding affinity. The thesis title cited by R mentions galactosyltransferase in Golgi membranes, but that attribution does not establish a species, detailed protocol or inhibition mechanism for this reduced table.
+The archive lacks the metadata needed to reconstruct the experiments. The [official R documentation](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html) describes one treated and one untreated experiment but supplies no experimental-unit identifiers. Repeated rows at a concentration therefore do not establish independent biological replication. The thesis title cited by R mentions galactosyltransferase in Golgi membranes, but that attribution does not establish a species, detailed protocol or inhibition mechanism for this reduced table.
 
-The model assumes a simple saturating relationship. A good fit does not verify its mechanism, establish enzyme turnover, or demonstrate that experimental saturation was reached. The uncertainty calculations additionally assume independent, constant-variance normally distributed (Gaussian) errors; those assumptions and small-sample coverage are not established by this archive. The hypothetical information comparison holds the model and noise fixed and is not a validated experimental design recommendation.
+The model assumes a simple saturating relationship. A good fit does not verify its mechanism, establish enzyme turnover, or demonstrate that experimental saturation was reached. Concentrations are in ppm; the fitted half-saturation parameter is not a molar binding affinity.
+
+The uncertainty calculations assume independent, constant-variance normally distributed (Gaussian) errors. The archive establishes neither those assumptions nor small-sample interval coverage. The hypothetical information comparison holds the model and noise fixed and is not a validated experimental design recommendation.
 
 ## Documentation
 
