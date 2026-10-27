@@ -15,3 +15,7 @@ The repository demonstrates nonlinear optimization, analytic derivatives, uncert
 Read the [biology and concepts](biology-and-concepts.md) for the reasoning behind the model, the [methods](methods.md) for the exact calculation, and the [example report](../results/report.md) for the outputs. The recurring themes are measurement, model assumptions, identifiability and the difference between interpolation and extrapolation.
 
 For definitions, see the [glossary](glossary.md); for the rationale and limits of each material choice, see the [assumptions](assumptions.md).
+
+## Where this fits in the portfolio
+
+Begin the featured reading route here, then visit [GFP active learning](https://github.com/TheThunda01/gfp-active-learning) to examine whether a selection rule helps prediction. [MAPK dynamics](https://github.com/TheThunda01/mapk-dynamics-lab) asks which virtual observation distinguishes competing hypotheses. The [portfolio guide](https://github.com/TheThunda01/TheThunda01/blob/main/PROJECT_GUIDE.md) connects these questions; the studies use separate datasets and models, with no transfer of results between them.

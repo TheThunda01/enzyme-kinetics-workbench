@@ -6,6 +6,8 @@ This project fits a classic saturating model to the 23 archived observations in 
 
 ## Why this project
 
+In [From biological measurements to better experiments](https://github.com/TheThunda01/TheThunda01/blob/main/PROJECT_GUIDE.md), this is the introductory study: how measurement range constrains what a fitted model can explain.
+
 You can trace every estimate to a pinned input and inspect the assumptions behind each interval. Residuals show observed rates minus fitted values; uncertainty describes how strongly the data constrain the parameters under stated assumptions. Together, these checks help distinguish a fitted curve from evidence about a biological mechanism.
 
 Figure 1 illustrates why the measured range matters. Two curves have the same slope at zero but different limiting rates. Observing only a short rising segment can make those limits difficult to distinguish.
