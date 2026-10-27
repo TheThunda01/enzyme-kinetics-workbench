@@ -1,0 +1,3 @@
+# Optional explorer build; core analysis pins remain unchanged.
+-r requirements.txt
+plotly==7.1.0
