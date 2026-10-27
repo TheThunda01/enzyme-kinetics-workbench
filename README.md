@@ -21,6 +21,7 @@ Figure 1 illustrates why the measured range matters. Two curves have the same sl
 - Profiles the apparent half-saturation parameter, reoptimizing the maximum rate at each candidate value. The resulting intervals depend on the assumed curve and error model and use a large-sample (asymptotic) approximation.
 - Refits just the observations at or below 0.11 ppm (parts per million) to show how a narrower range changes the estimates and uncertainty.
 - Compares three explicitly hypothetical substrate grids using local information in log-parameter coordinates.
+- Provides an optional offline profile explorer linking saved parameter tradeoffs to their predicted curves, with all 964 profile rows checked against the archived observations before rendering.
 
 Here, a substrate is a reacting molecule; half-saturation is the concentration at which the curve reaches half its limiting rate. Local information describes how predictions respond to small parameter changes. Log-parameter coordinates use logarithms of the positive constants.
 
@@ -78,6 +79,8 @@ The fitted maximum rates depend on the measured range: retaining only the low-co
 Across the 12 concentration-level refits, the largest absolute change in the apparent half-saturation parameter, Km, is 12.66% for the treated label and 27.36% for the untreated label. These are sensitivity summaries, not confidence limits. See the [audit report](examples/concentration-audit/report.md).
 
 All 16 saved fits also pass the [independent numerical check](examples/numerical-verification/verification.json), using relative tolerance `1e-5` and absolute tolerance `1e-7` for parameters and residual sums of squares. This compares the same objective using different numerical code.
+
+Use the [interactive profile explorer](docs/profile-explorer.md) to inspect how each candidate Km changes the reoptimized Vmax and predicted curve. It retains excluded observations and marks extrapolation, making the low-range parameter tradeoff easier to inspect without changing the analysis.
 
 ## Practical use and limitations
 

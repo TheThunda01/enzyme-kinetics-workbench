@@ -2,3 +2,6 @@
 *.png binary
 data/Puromycin.R -text
 data/Puromycin.Rd -text
+
+# Preserve the embedded Plotly distribution as generated.
+examples/profile-explorer/profile-explorer.html -whitespace linguist-generated

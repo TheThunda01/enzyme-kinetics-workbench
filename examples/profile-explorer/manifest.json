@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "input_sha256": {
+    "data/puromycin.csv": "38485c080eb7babdabf1e8849b5f08c0b81b0c524a62d7b223eae3399cb49514",
+    "results/summary.json": "71fd74fe18cbfc06a9df685b97cf76c61369ecf830149cc66ea5ed05c33ca7ee",
+    "results/km_profiles.csv": "8fd4f5bca9e5254e5fbc42a3a5235c2066b97473fdcfd8c1e1c8c9dd7dc0e08f"
+  },
+  "builder_sha256": "e5f7ad6bed4af68dfd7a6794ab90fc811a4f44eef986186324419f0f204408c1",
+  "versions": {
+    "plotly": "7.1.0",
+    "numpy": "2.3.5",
+    "matplotlib": "3.10.8"
+  },
+  "profile_groups": 4,
+  "profile_rows_checked": 964,
+  "checks": "All saved profile Vmax, RSS and likelihood ratios recomputed against archived observations before rendering.",
+  "scope": "Visualization of saved conditional fits; no new fitting, biological inference, or interval calibration.",
+  "output_sha256": {
+    "profile-explorer.html": "e6435fdc946eac0a673659c2b99c773f953605cff15fb068dfbcb4be02954bb4",
+    "profile-preview.png": "ad1d5fb396e0f9daec8ccf958caf475fd61ff495256b874bafa8eff5294ed7a3"
+  }
+}
