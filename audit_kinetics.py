@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 import sys
 
@@ -77,8 +78,11 @@ def run(out: Path, data_dir: Path = ROOT / "data") -> dict:
              "| --- | ---: | ---: | --- | ---: | ---: | ---: |"]
     for row in table.itertuples():
         lines.append(f"| {row.state} | {row.omitted_concentration_ppm:g} | {row.omitted_rows} | {row.prediction_scope} | {row.vmax_change_percent:.2f} | {row.km_change_percent:.2f} | {row.omitted_rmse_counts_per_min_per_min:.2f} |")
-    lines += ["", "RMSE retains the source rate units (counts/min/min). Endpoint omissions ask the refit to extrapolate beyond its retained concentration range. The errors share the same archived experiments and are not an independent validation set. Larger changes are prompts to inspect model dependence, not automatic outlier flags. See [practical use](../../docs/practical-use.md).", ""]
-    (out / "report.md").write_text("\n".join(lines))
+    guide = "https://github.com/TheThunda01/enzyme-kinetics-workbench/blob/main/docs/practical-use.md"
+    if out.resolve().is_relative_to(ROOT):
+        guide = Path(os.path.relpath(ROOT / "docs" / "practical-use.md", out)).as_posix()
+    lines += ["", f"RMSE retains the source rate units (counts/min/min). Endpoint omissions ask the refit to extrapolate beyond its retained concentration range. The errors share the same archived experiments and are not an independent validation set. Larger changes are prompts to inspect model dependence, not automatic outlier flags. See [practical use]({guide}).", ""]
+    (out / "report.md").write_text("\n".join(lines), encoding="utf-8")
     return report
 
 

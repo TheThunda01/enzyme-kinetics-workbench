@@ -1,16 +1,12 @@
 # Enzyme kinetics workbench
 
-How much can an enzyme-kinetics curve tell us about its parameters?
-
-This project fits a classic saturating model to the 23 archived observations in R's `Puromycin` dataset. It examines residuals, parameter uncertainty and the effect of removing high-concentration observations. Enzyme kinetics studies reaction rates; parameters are the constants defining a model’s curve. A separate mathematical exercise examines how substrate concentration range affects local parameter information.
+Fit a reaction-rate curve to the 23 archived observations in R’s Puromycin dataset, then repeat the fit after removing the high concentrations. The model estimates a limiting rate and the concentration at which the rate reaches half that limit. Comparing the two fits shows how much the upper end of the measured range contributes to each estimate.
 
 ## Why this project
 
 In [From biological measurements to better experiments](https://github.com/TheThunda01/TheThunda01/blob/main/PROJECT_GUIDE.md), this is the introductory study: how measurement range constrains what a fitted model can explain.
 
-You can trace every estimate to a pinned input and inspect the assumptions behind each interval. Residuals show observed rates minus fitted values; uncertainty describes how strongly the data constrain the parameters under stated assumptions. Together, these checks help distinguish a fitted curve from evidence about a biological mechanism.
-
-Figure 1 illustrates why the measured range matters. Two curves have the same slope at zero but different limiting rates. Observing only a short rising segment can make those limits difficult to distinguish.
+The two curves in Figure 1 have the same slope at zero and different limiting rates. If measurements cover only the early rise, both curves can look plausible. The workbench uses residuals and parameter intervals to examine that ambiguity in the archive.
 
 ![Two illustrative saturating curves are close near zero but approach different limiting rates over a wider concentration range](docs/figures/concentration-range-illustration.svg)
 
@@ -61,7 +57,7 @@ python verify_kinetics.py --results-dir .reproduction --audit-dir .reproduction-
 
 ## Example results
 
-Table 1 summarizes the archived-data fits; Figure 2 shows the observations behind those summaries.
+For the treated label, the fitted limiting rate falls from 212.68 to 174.50 counts/min/min when the fit uses only concentrations at or below 0.11 ppm. Compare the `full_range` and `low_range_only` rows in the [parameter estimates](results/parameter_estimates.csv).
 
 **Table 1. Full-range fits to the archived labels.**
 
@@ -72,8 +68,6 @@ Table 1 summarizes the archived-data fits; Figure 2 shows the observations behin
 
 The source’s `counts/min/min` means change in radioactive count rate, `(counts/min)`, per minute of reaction time. It is not a turnover rate per enzyme.
 
-The fitted maximum rates depend on the measured range: retaining only the low-concentration observations gives 174.50 and 126.75 counts/min/min. Inspect that sensitivity before interpreting the model's asymptote, its limiting rate at very high concentration. These are separate descriptive fits, not an estimate of a causal treatment effect.
-
 ![Observed rates, fitted curves and marked extrapolation](results/fitted_curves.png)
 
 **Figure 2. Archived observations and fitted curves.** Source: [included Puromycin data](data/README.md) and [saved parameter estimates](results/parameter_estimates.csv). Dotted extensions are predictions outside the measured concentration range, not additional observations. These fits describe the labels separately and do not establish a treatment mechanism.
@@ -83,6 +77,14 @@ Across the 12 concentration-level refits, the largest absolute change in the app
 All 16 saved fits also pass the [independent numerical check](examples/numerical-verification/verification.json), using relative tolerance `1e-5` and absolute tolerance `1e-7` for parameters and residual sums of squares. This compares the same objective using different numerical code.
 
 Use the [interactive profile explorer](docs/profile-explorer.md) to inspect how each candidate Km changes the reoptimized Vmax and predicted curve. It retains excluded observations and marks extrapolation, making the low-range parameter tradeoff easier to inspect without changing the analysis.
+
+### How often do the intervals cover a known Km?
+
+The [coverage study](examples/interval-coverage/report.md) reuses the archived concentration grids and generates responses from a curve with known parameters. Each row in the report counts how often the fitted Km interval contains its generating value across 200 simulated datasets. On the untreated grid, the interval contained the generating Km in 183 of 200 full-range runs and 166 of 200 low-range runs. Whiskers show the Monte Carlo uncertainty in each fraction.
+
+![Simulated interval coverage on the full and low-range grids for both archived labels](examples/interval-coverage/coverage.png)
+
+Run `python interval_coverage.py --out .reproduction-coverage` to regenerate the chart and [counts](examples/interval-coverage/coverage.csv). This checks coverage for the declared curve and noise model. Whether that model describes the original archived errors remains an open question.
 
 ## Practical use and limitations
 
