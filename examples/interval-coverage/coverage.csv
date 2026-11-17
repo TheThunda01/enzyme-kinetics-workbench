@@ -1,0 +1,5 @@
+state,scope,observations,seed,repeats,generating_vmax,generating_km,noise_sd,completed,failed,covered,open_intervals,coverage,mc_lower,mc_upper
+treated,full range,12,182,200,180,0.06,6,200,0,179,0,0.895,0.84481968,0.93029251
+treated,low range,6,182,200,180,0.06,6,200,0,177,0,0.885,0.83335283,0.92213627
+untreated,full range,11,182,200,180,0.06,6,200,0,183,0,0.915,0.86810413,0.94625425
+untreated,low range,6,182,200,180,0.06,6,200,0,166,0,0.83,0.77184116,0.87572092

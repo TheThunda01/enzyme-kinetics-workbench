@@ -84,6 +84,14 @@ All 16 saved fits also pass the [independent numerical check](examples/numerical
 
 Use the [interactive profile explorer](docs/profile-explorer.md) to inspect how each candidate Km changes the reoptimized Vmax and predicted curve. It retains excluded observations and marks extrapolation, making the low-range parameter tradeoff easier to inspect without changing the analysis.
 
+## How often do the intervals cover a known Km?
+
+The [coverage study](examples/interval-coverage/report.md) reuses the archived concentration grids and generates responses from a curve with known parameters. Each row in the report counts how often the fitted Km interval contains its generating value across 200 simulated datasets. On the untreated grid, the interval contained the generating Km in 183 of 200 full-range runs and 166 of 200 low-range runs. Whiskers show the Monte Carlo uncertainty in each fraction.
+
+![Simulated interval coverage on the full and low-range grids for both archived labels](examples/interval-coverage/coverage.png)
+
+Run `python interval_coverage.py --out .reproduction-coverage` to regenerate the chart and [counts](examples/interval-coverage/coverage.csv). This checks coverage for the declared curve and noise model. Whether that model describes the original archived errors remains an open question.
+
 ## Practical use and limitations
 
 The archive lacks the metadata needed to reconstruct the experiments. The [official R documentation](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/Puromycin.html) describes one treated and one untreated experiment but supplies no experimental-unit identifiers. Repeated rows at a concentration therefore do not establish independent biological replication. The thesis title cited by R mentions galactosyltransferase in Golgi membranes, but that attribution does not establish a species, detailed protocol or inhibition mechanism for this reduced table.
